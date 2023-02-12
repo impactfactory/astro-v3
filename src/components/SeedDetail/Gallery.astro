@@ -1,0 +1,61 @@
+---
+import { Picture } from "@astrojs/image/components";
+import GalleryLightbox from "./GalleryLightbox.astro";
+import { site } from "@data/site";
+
+const { s } = Astro.props;
+const lang = s.id.substr(0, 2);
+
+let t: any = "";
+lang == "de"
+  ? (t = site.languages.de.components.gallery)
+  : (t = site.languages.en.components.gallery);
+
+interface Image {
+  file: string;
+  alt: string;
+}
+---
+
+<section class="gallery" id="gallery">
+  <h2>{t.title}</h2>
+
+  <ul class="lb-album">
+    {
+      s.data.gallery.map((img: Image, index: number) => (
+        <li class="img">
+          <a href={"#overlay-" + index}>
+            <Picture
+              alt={img.alt}
+              aspectRatio="1:1"
+              background="#ddd"
+              formats={["avif", "webp", "jpeg"]}
+              sizes={"(max-width: 3000px) 100px,100px"}
+              src={"/images/" + s.slug.substr(2) + "/" + img.file}
+              widths={[100, 200]}
+            />
+          </a>
+          <GalleryLightbox
+            images={s.data.gallery}
+            img={img}
+            s={s}
+            index={index}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .images {
+    display: flex;
+    padding: var(--padd-md) 0 0 0;
+  }
+
+  .img {
+    aspect-ration: 1 / 1;
+    padding: 0 var(--padd-md) 0 0;
+    width: 135px;
+  }
+</style>

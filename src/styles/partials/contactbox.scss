@@ -1,0 +1,61 @@
+.contactbox {
+  display: none;
+
+  a {
+    color: hsl(var(--light) / 1);
+    border: none;
+    display: block;
+    transform: translateY(3px);
+
+    &:hover {
+      color: hsl(var(--prim));
+    }
+
+    .fa-clock {
+      top: 4px;
+    }
+    .fa-envelope {
+      top: 5px;
+    }
+    .fa-phone-alt {
+      top: 2px;
+    }
+    .fa-lightdark {
+    }
+  }
+}
+
+header nav #menu-toggle:checked ~ .contactbox {
+  background: transparent;
+  border: none;
+  display: flex !important;
+  gap: 1rem;
+  place-items: center;
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  z-index: 2000;
+
+  svg {
+    height: 28px;
+    width: 28px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .contactbox {
+    background: hsl(var(--prim) / 0.5);
+    border-left: 1px solid hsl(var(--dark) / 1);
+    display: flex;
+    gap: var(--padd-md);
+    height: 100%;
+    justify-content: center;
+    place-items: center;
+
+    svg {
+      height: 20px;
+      width: 20px;
+      filter: drop-shadow(2px 2px 2px hsl(var(--dark)));
+    }
+  }
+}

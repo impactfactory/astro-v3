@@ -1,0 +1,23 @@
+---
+import Icon from "astro-icon";
+
+const { link } = Astro.props;
+
+let year = link.date.slice(0, 4);
+let month = link.date.slice(5, 7);
+let day = link.date.slice(8, 10);
+---
+
+<a href={link.url} class={link.type}>
+  <Icon name="mdi:earth-arrow-right" />{link.name}
+  {link.date ? "(" + day + "." + month + "." + year + ")" : ""}
+
+  <style>
+    a svg {
+      padding: 0 var(--padd-xs) 0 0;
+      transform: translateY(var(--padd-xs));
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</a>

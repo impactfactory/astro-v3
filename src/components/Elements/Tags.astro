@@ -1,0 +1,24 @@
+---
+const { classtype, label, url } = Astro.props;
+---
+
+<a href={url} class={"tag " + classtype}>{label}</a>
+
+<style>
+  .tag {
+    background: hsl(var(--tec-lgt));
+    color: var(--dark);
+    border-radius: var(--btn-radius);
+    display: inline-block;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-lg);
+    margin: var(--padd-xs) var(--padd-xs) var(--padd-xs) 0;
+    padding: var(--padd-sm);
+    text-transform: uppercase;
+  }
+
+  .tag:hover {
+    background: hsl(var(--tec));
+    color: hsl(var(--light));
+  }
+</style>

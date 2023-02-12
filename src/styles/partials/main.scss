@@ -1,0 +1,45 @@
+main {
+  //--opacity: 1;
+  //display: grid;
+  //justify-items: left top;
+  //overflow: hidden;
+  width: 100%;
+
+  /*
+  .team,
+  .practice,
+  .faq,
+  .reservation,
+  .arrival {
+    border-top: 3px solid hsl(var(--light) / 1);
+    width: 100%;
+  }
+
+  .introvisual {
+    width: 100%;
+  }
+
+  .team {
+    background: hsl(var(--main-lgt) / var(--opacity));
+  }
+  .practice {
+    background: hsl(var(--acc1-lgt) / var(--opacity));
+  }
+  .faq {
+    background: hsl(var(--prim-lgt) / var(--opacity));
+  }
+  .reservation {
+    background: hsl(var(--acc2-lgt) / var(--opacity));
+  }
+  .arrival {
+    background: hsl(var(--tec-lgt) / var(--opacity));
+  }
+*/
+  /* base for modules */
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    //padding-top: 125px;
+  }
+}

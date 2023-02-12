@@ -1,0 +1,34 @@
+---
+const { lang, site } = Astro.props;
+const today = new Date();
+
+let t: any = "";
+lang == "de" ? (t = site.languages.de) : (t = site.languages.en);
+---
+
+<footer>
+  <div class="indent-me">
+    <a href={lang + "/imprint"}>{t.pages.imprint.name}</a> |
+    <a href={lang + "/dataprotection"}>{t.pages.dataprotection.name}</a> |
+    <a href={"https://impactfactory.ch/" + lang}>{t.pages.impactfactory.name}</a
+    > &copy; {today.getFullYear()}
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: hsl(var(--dark) / 1);
+    color: hsl(var(--light));
+    display: block;
+    height: auto;
+    padding: var(--padd-md);
+  }
+
+  a {
+    color: hsl(var(--light)) !important;
+  }
+
+  .indent-me {
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon";
+import TwoLevels from "./TwoLevels.astro";
+
+const { cat, cat_name } = Astro.props;
+---
+
+<nav class="breadcrumbs">
+  <a href="/"><Icon name="mdi:home" /></a><span>&gt;</span>{
+    cat ? <TwoLevels cat={cat} cat_name={cat_name} /> : ""
+  }
+</nav>
+
+<style is:global>
+  .breadcrumbs,
+  .breadcrumbs a {
+    color: hsl(var(--dark) / 0.5);
+    font-weight: var(--fw-lg);
+  }
+
+  .breadcrumbs svg {
+    height: 24px;
+    margin-right: 4px;
+    transform: translateY(5px);
+    width: 24px;
+  }
+</style>

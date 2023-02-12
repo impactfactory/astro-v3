@@ -1,0 +1,11 @@
+---
+const { desc, lang, site, title } = Astro.props;
+---
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content={desc} />
+<meta name="twitter:image" content={"/images/preview_" + lang + ".jpg"} />
+<meta property="twitter:image:width" content="1200" />
+<meta property="twitter:image:height" content="630" />
+<meta property="twitter:title" content={title + " " + site.name} />
+<meta property="twitter:url" content={Astro.url.pathname} />

@@ -1,0 +1,58 @@
+---
+const { nav, notFound } = Astro.props;
+---
+
+<input id="menu-toggle" type="checkbox" />
+<label class="menu-button-container" for="menu-toggle">
+  <div class="menu-button"></div>
+</label>
+
+{
+  !notFound ? (
+    <ul class="menu">
+      <li>
+        <a class="" href="#team" onclick="hideMenu()">
+          {nav.team}
+        </a>
+      </li>
+      <li>
+        <a class="" href="#practice" onclick="hideMenu()">
+          {nav.practice}
+        </a>
+      </li>
+      <li>
+        <a class="" href="#reservation" onclick="hideMenu()">
+          {nav.reservation}
+        </a>
+      </li>
+      <li>
+        <a class="" href="#arrival" onclick="hideMenu()">
+          {nav.arrival}
+        </a>
+      </li>
+    </ul>
+  ) : (
+    <ul class="menu">
+      <li>
+        <a class="" href="/#team" onclick="hideMenu()">
+          {nav.team}
+        </a>
+      </li>
+      <li>
+        <a class="" href="/#practice" onclick="hideMenu()">
+          {nav.practice}
+        </a>
+      </li>
+      <li>
+        <a class="" href="/#reservation" onclick="hideMenu()">
+          {nav.reservation}
+        </a>
+      </li>
+      <li>
+        <a class="" href="/#arrival" onclick="hideMenu()">
+          {nav.arrival}
+        </a>
+      </li>
+    </ul>
+  )
+}

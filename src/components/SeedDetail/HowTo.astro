@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon";
+import { site } from "@data/site";
+import Steps from "./Steps.astro";
+
+const { s } = Astro.props;
+const lang = s.id.substr(0, 2);
+
+let t: any = "";
+lang == "de"
+  ? (t = site.languages.de.components.howto)
+  : (t = site.languages.en.components.howto);
+---
+
+<section class="howto">
+  <h2>{t.title}</h2>
+
+  <div class="prep">
+    <ul class="">
+      <h3>{t.preparation}</h3>
+      <li>
+        <Icon name="mdi:book-check-outline" />
+        {t.materials}: {s.data.materials.join(", ")}
+      </li>
+      <li>
+        <Icon name="mdi:tools" />
+        {t.tools}: {s.data.tools.join(", ")}
+      </li>
+
+      <li>
+        <Icon name="mdi:wallet" />
+        {t.costs}: {s.data.costs} CHF
+      </li>
+
+      <li>
+        <Icon name="mdi:clock-time-eight" />
+        {t.time}: {s.data.time} Stunden
+      </li>
+    </ul>
+  </div>
+  <div class="steps">
+    <h3>{t.steps}</h3>
+
+    {
+      s.data.steps.map((step: any, index: number) => (
+        <Steps s={s} step={step} index={index} />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .howto svg {
+    height: 20px;
+    transform: translateY(0.25rem);
+    width: 20px;
+  }
+
+  h3 {
+    padding: 0;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    font-weight: var(--fw-xl);
+  }
+</style>

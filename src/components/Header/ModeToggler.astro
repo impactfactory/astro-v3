@@ -1,0 +1,47 @@
+---
+//import toggleMode from "../../modetoggle.ts";
+import "../../hidemenu.ts";
+---
+
+<a href="#" onclick="toggleMode()" class="mode-toggle">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="fa-lightdark"
+    viewBox="0 0 512 512">
+    <path
+      fill="currentColor"
+      d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zm64 0c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256z"
+    ></path>
+  </svg>
+</a>
+
+<script type="text/javascript">
+  const btn = document.querySelector(".mode-toggle");
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const currentTheme = localStorage.getItem("theme");
+
+  if (prefersDarkScheme.matches && currentTheme == "dark") {
+    document.body.classList.add("dark");
+  } else if (prefersDarkScheme.matches && currentTheme == "light") {
+    document.body.classList.remove("dark");
+  } else if (prefersDarkScheme.matches) {
+    document.body.classList.add("dark");
+  } else if (prefersDarkScheme.matches == false && currentTheme == "dark") {
+    document.body.classList.add("dark");
+  } else if (prefersDarkScheme.matches == false && currentTheme == "light") {
+  } else if (prefersDarkScheme.matches == false) {
+  } else {
+  }
+
+  function toggleMode() {
+    if (document.body.classList.contains("dark")) {
+      document.body.classList.remove("dark");
+      var theme = "light";
+      localStorage.setItem("theme", theme);
+    } else {
+      document.body.classList.add("dark");
+      var theme = "dark";
+      localStorage.setItem("theme", theme);
+    }
+  }
+</script>

@@ -1,0 +1,81 @@
+---
+import { Picture } from "@astrojs/image/components";
+const { s, step, index } = Astro.props;
+
+const file = step.img;
+---
+
+<div>
+  <ul class="firstlevel">
+    <li>
+      <h4>
+        {index + 1 + ": " + step.title}
+      </h4>
+      <div class="body">
+        <div class="img">
+          {
+            step.img && (
+              <Picture
+                alt={"Thumbnail " + step.title}
+                aspectRatio="1:1"
+                background="#ddd"
+                class="thumbnail"
+                fit="cover"
+                formats={["avif", "webp", "jpeg"]}
+                height="100px"
+                sizes={"(max-width: 1400px) 100px,100px"}
+                src={"/images/" + s.slug.substr(2) + "/" + step.img}
+                position="center"
+                width="100px"
+                widths={[100, 200]}
+                style="width:100px;max-width:100px"
+              />
+            )
+          }
+        </div>
+        <div class="desc">
+          <p>{step.desc}</p>
+          <ul class="secondlevel">
+            {step.substeps.map((sub: string) => <li>{sub}</li>)}
+          </ul>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<style>
+  .firstlevel {
+    margin: 0;
+    padding: 0;
+  }
+  .firstlevel li {
+    display: grid;
+    grid-template-rows: [h4] 2.7rem [body] auto;
+  }
+
+  h4 {
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: 160px auto;
+  }
+
+  .img {
+    aspect-ration: 1 / 1;
+    padding: var(--padd-md) var(--padd-lg) 0 0;
+  }
+
+  .desc {
+  }
+
+  .secondlevel {
+    padding: var(--padd-md) 0 0 var(--padd-lg);
+  }
+
+  .secondlevel li {
+    display: list-item;
+    list-style-type: disc;
+  }
+</style>

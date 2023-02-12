@@ -1,0 +1,63 @@
+footer {
+  background: hsl(var(--dark) / 1);
+  color: hsl(var(--light));
+  display: block;
+  height: auto;
+  padding: var(--padd-md);
+
+  .faq {
+    details {
+      border-top: 1px solid hsl(var(--light) / 0.6);
+      padding: var(--padd-md) 0 var(--padd-md) 0;
+
+      &:last-child {
+        border-bottom: 1px solid hsl(var(--light) / 0.6);
+      }
+
+      summary:after {
+        border-bottom: 1px solid hsl(var(--light));
+        border-right: 1px solid hsl(var(--light));
+        position: relative;
+        top: 2px;
+      }
+
+      div a {
+        color: hsl(var(--light));
+      }
+    }
+
+    .langselect {
+      border-top: 1px solid hsl(var(--light) / 0.6);
+      padding: var(--padd-md) 0 var(--padd-md) var(--padd-1);
+
+      a {
+        color: hsl(var(--light));
+        display: inline-block;
+        padding: var(--padd-xs);
+
+        &:hover {
+          color: hsl(var(--prim));
+        }
+      }
+
+      a.selected {
+        background: hsl(var(--light) / 0.2);
+        border-radius: var(--rad-xs);
+      }
+    }
+
+    .byline {
+      border-top: 1px solid hsl(var(--light) / 0.6);
+      line-height: 1.1rem;
+      padding: var(--padd-md) 0 var(--padd-md) var(--padd-1);
+
+      a {
+        color: hsl(var(--light));
+
+        &:hover {
+          color: hsl(var(--prim));
+        }
+      }
+    }
+  }
+}

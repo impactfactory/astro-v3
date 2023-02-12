@@ -1,0 +1,39 @@
+---
+import Logo from "../svg/Logo.astro";
+import HeaderLink from "./HeaderLink.astro";
+import LanguageSelector from "./LanguageSelector.astro";
+
+const { lang, site } = Astro.props;
+
+let t: any = "";
+lang == "de" ? (t = site.languages.de) : (t = site.languages.en);
+---
+
+<header>
+  <div class="indent-me navbar">
+    <a href={"/" + lang + "/"}><Logo /></a>
+    <nav>
+      <HeaderLink href={"/" + lang + "/articles"}>
+        {t.pages.blog.name}
+      </HeaderLink>
+      <LanguageSelector lang={lang} site={site} />
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    border-bottom: hsl(var(--dark) / 0.2) solid 1px;
+  }
+  .navbar {
+    display: grid;
+    grid-template-columns: 210px auto;
+  }
+
+  nav {
+    align-self: center;
+    justify-self: end;
+    /*padding: var(--padd-sm) 0 0 0;
+    text-align: right;*/
+  }
+</style>

@@ -1,0 +1,72 @@
+---
+const { org } = Astro.props;
+
+const profiles = JSON.stringify(org.profiles);
+
+const specialities = JSON.stringify(org.specialities);
+
+const openDays = JSON.stringify(org.openDays);
+
+const schema =
+  "{" +
+  '"@context": "https://schema.org", "@type": ["Corporation", "LocalBusiness", "MedicalOrganization"],"name": "' +
+  org.name +
+  '", "id":"' +
+  org.url +
+  '", "description":"' +
+  org.desc +
+  '", "logo":"' +
+  org.logo +
+  '", "image":"' +
+  org.image +
+  '", "foundingDate":"' +
+  org.foundingdate +
+  '", "founder": {"@type": "Person", "name": "' +
+  org.owner +
+  '", "jobTitle": "' +
+  org.founderJobTitle +
+  '", "url": "' +
+  org.url +
+  '"}, "sameAs": ' +
+  profiles +
+  ',"contactPoint": [{"@type": "ContactPoint","telephone":"' +
+  org.phone +
+  '", "contactType": "customer service"}], "specialty": ' +
+  specialities +
+  '","location": {"@type": "Place", "photo": "' +
+  org.place +
+  '", "telephone": "' +
+  org.phone +
+  '", "geo": {"@type": "GeoCoordinates", "latitude": "' +
+  org.latitude +
+  '", "longitude": "' +
+  org.longitude +
+  '"}, "adress": {"@type": "PostalAddress", "addressLocality": "' +
+  org.city +
+  '", "addressRegion": "' +
+  org.region +
+  '", "postalCode": "' +
+  org.zip +
+  '", "streetAddress": "' +
+  org.street +
+  " " +
+  org.no +
+  '", "addressCountry": "' +
+  org.country +
+  '"},  "hasMap": "' +
+  org.url +
+  '/home/#arrival", "availableService": [{"@type": ["medicalSpecialty"], "name": "' +
+  org.medicalspeciality +
+  '", "url": "' +
+  org.url +
+  '"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ' +
+  openDays +
+  ', "opens": "' +
+  org.opensAt +
+  '", "closes": "' +
+  org.closesAt +
+  '"}]' +
+  "}";
+---
+
+<script type="application/ld+json" set:html={schema}></script>

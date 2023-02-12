@@ -1,0 +1,162 @@
+body.dark {
+  --body-bg: black;
+  --body-color: hsl(var(--light) / 0.7);
+
+  /* Colors */
+  --dark: 189 50% 10%;
+  --acc1: 46 100% 20%;
+  --acc1-lgt: 46 55% 05%;
+  --acc2: 100 54% 20%;
+  --acc2-lgt: 100 55% 05%;
+  --main: 189 50% 20%;
+  --main-lgt: 189 85% 05%;
+  --prim: 32 85% 05%;
+  --prim-lgt: 32 85% 05%;
+  --tec: 0 25% 20%;
+  --tec-lgt: 0 0% 10%;
+
+  /* Buttons */
+  --btn-bg: hsl(var(--light) / 0.3);
+  --btn-color: hsl(var(--light) / 1);
+
+  /* Images */
+  --img-bright: 0.8;
+
+  .team,
+  .practice,
+  .faq,
+  .reservation,
+  .arrival {
+    border-top: 3px solid hsl(var(--light) / 0.2);
+  }
+
+  /* Header */
+  header {
+    background: var(--body-bg);
+
+    nav ul.menu {
+      li a {
+        color: var(--body-color);
+      }
+    }
+
+    label.menu-button-container {
+      .menu-button,
+      .menu-button::before,
+      .menu-button::after {
+        background-color: var(--body-color);
+      }
+    }
+
+    nav ul li a,
+    .contactbox {
+      border-left: 1px solid hsl(var(--light) / 0.2);
+    }
+    .contactbox {
+      a {
+        color: hsl(var(--light) / 0.7);
+
+        &:hover {
+          color: hsl(var(--dark));
+        }
+      }
+      svg {
+        filter: none;
+      }
+    }
+  }
+
+  /* Keyvisual */
+  .intro .introvisual img {
+    filter: brightness(0.4);
+  }
+
+  /* Google Map */
+  iframe {
+    filter: invert(90%);
+  }
+
+  /* Team */
+  .team .team-list .card {
+    background: hsl(var(--dark) / 1);
+    border: none;
+    box-shadow: 5px 5px 20px hsl(0 05% 05% / 1);
+
+    img {
+      filter: brightness(var(--img-bright));
+    }
+  }
+
+  /* Gallery */
+  .gallery {
+    img {
+      filter: brightness(var(--img-bright));
+    }
+
+    .lb-overlay {
+      background: var(--body-bg);
+
+      .svg-inline--fa,
+      .info {
+        color: var(--body-color);
+      }
+
+      h3 {
+        border-right: 1px solid var(--body-color);
+      }
+    }
+  }
+
+  /* MedicoSearch iFrame */
+  --body-color-medico: var(--body-color);
+
+  .reservation {
+    .medicosearch-widget #medicosearchWidget.mbw-impactfactory {
+      .mbw-dropdown-selected-value,
+      .mbw-empty-option-active,
+      .mbw-dropdown li a span,
+      .mbw-icon-calendar {
+        color: hsl(var(--black)) !important;
+      }
+      .mbw-form-bg-block {
+        background-color: hsl(var(--acc1-lgt));
+      }
+      .mbw-layer-bg {
+        background-color: hsl(var(--acc1) / 0.1);
+      }
+      .mbw-column {
+        background: hsl(var(--tec) / 0.2);
+      }
+      .mbw-widget-header {
+        background: hsl(var(--tec) / 0.6);
+      }
+      .mbw-table-day-row {
+        background: hsl(var(--tec) / 0.4);
+      }
+    }
+  }
+
+  /* FAQ */
+  .faq {
+    details {
+      border-top: 1px solid hsl(var(--light) / 0.2);
+    }
+  }
+
+  /* Footer */
+  footer {
+    background: black;
+    color: var(--body-color);
+
+    .langselect,
+    .byline {
+      border-top: 1px solid hsl(var(--light) / 0.2);
+    }
+
+    .langselect a,
+    .byline a,
+    .faq details div a {
+      color: var(--body-color);
+    }
+  }
+}

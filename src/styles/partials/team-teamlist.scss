@@ -1,0 +1,133 @@
+.team {
+  padding-bottom: var(--padd-lg);
+
+  .team-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: var(--padd-lg) 0px;
+    margin-top: var(--padd-lg);
+
+    .card:nth-child(2n) {
+      background: hsl(var(--light));
+    }
+
+    .card {
+      background: hsl(var(--light) / 1);
+      border: 2px solid hsl(var(--white) / 0.5);
+      border-radius: var(--rad-lg);
+      box-shadow: (var(--shad-md));
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: var(--padd-md);
+      overflow: hidden;
+      padding: var(--padd-md);
+      width: 100%;
+
+      h3,
+      h4,
+      p {
+        margin-top: 0;
+      }
+
+      a {
+        color: var(--body-color);
+
+        &:hover {
+          color: var(--primary);
+        }
+      }
+
+      .desc {
+        padding-left: var(--padd-xs);
+      }
+
+      .phone,
+      .email,
+      .availability,
+      .booking {
+        background: hsl(var(--dark) / 0.1);
+        border-radius: var(--rad-lg);
+        align-self: start;
+        display: block;
+        font-size: calc(var(--scale) / 1.6 * 1rem);
+        padding: var(--padd-md);
+        transition: 0.5s;
+        width: 100%;
+
+        svg {
+          display: inline-block;
+          float: left;
+          height: 20px;
+          margin-right: var(--padd-md);
+          position: relative;
+          top: 1px;
+          width: 20px;
+        }
+      }
+
+      .phone,
+      .email,
+      .availability,
+      .booking {
+        &:hover {
+          background: radial-gradient(
+            hsl(var(--prim) / 1) 0%,
+            hsl(var(--prim) / 0.6) 100%
+          );
+          color: hsl(var(--white) / 1);
+        }
+      }
+
+      .portrait {
+        img {
+          border-radius: var(--rad-lg);
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 567px) {
+  .team .team-list .card {
+    grid-template-columns: 1fr 1fr;
+
+    .name {
+      grid-column: span 2;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .team .team-list .card {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    .name {
+      grid-column: span 4;
+    }
+
+    .desc {
+      grid-column: span 3;
+    }
+    .email,
+    .phone,
+    .availability,
+    .booking {
+      grid-column: span 2;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .team .team-list .card {
+    .email,
+    .phone,
+    .availability,
+    .booking {
+      grid-column: span 1;
+    }
+  }
+}

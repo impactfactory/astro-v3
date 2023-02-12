@@ -1,0 +1,27 @@
+---
+// import "../../hidemenu.ts";.. geht nicht
+import ContactBox from "./ContactBox.astro";
+import Logo from "./Logo.astro";
+import Nav from "./Nav.astro";
+const { nav, notFound, phone } = Astro.props;
+---
+
+<header>
+  <nav>
+    <Logo />
+    <Nav notFound={notFound} nav={nav} />
+    <ContactBox phone={phone} notFound={notFound} />
+  </nav>
+</header>
+
+<script type="text/javascript">
+  function hideMenu() {
+    let mq = window.matchMedia("(max-width: 767px)");
+    const checkbox = document.getElementById("menu-toggle");
+
+    if (mq.matches) {
+      checkbox.click();
+    } else {
+    }
+  }
+</script>

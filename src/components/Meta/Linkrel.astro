@@ -1,0 +1,14 @@
+---
+const { lang, site } = Astro.props;
+let altlang: string = "";
+
+lang == "de" ? (altlang = "en") : (altlang = "de");
+---
+
+<link rel="canonical" href={Astro.url.pathname} />
+<link rel="alternate" hreflang={lang} href={Astro.url.pathname} />
+<link
+  rel="alternate"
+  hreflang={altlang}
+  href={Astro.url.pathname.replace(lang, altlang)}
+/>

@@ -1,0 +1,11 @@
+---
+const { org } = Astro.props;
+
+const schema =
+  "{" +
+  '"@context": "https://schema.org", "@type": "Website", "url": "' +
+  org.url +
+  '"}';
+---
+
+<script type="application/ld+json" set:html={schema}></script>

@@ -1,0 +1,30 @@
+///////////////// variable overrides ///////////
+//first we define some project variabels and override some cherrypicked variables of bootstrap
+
+@import "partials/normalize.scss";
+@import "partials/variables.scss";
+@import "partials/darkmode.scss";
+
+////////////////// project globals ////////////////////////
+//we import some general layout globals for this project
+
+@import "partials/globals-layout.scss";
+@import "partials/globals-typo.scss";
+@import "partials/helpers.scss";
+
+//////////////// components imports //////////////////////
+
+@import "partials/buttons.scss";
+//@import "partials/contactbox.scss";
+//@import "partials/faq.scss";
+//@import "partials/footer.scss";
+@import "partials/galleries.scss";
+//@import "partials/header.scss";
+//@import "partials/introvisual.scss";
+//@import "partials/main.scss";
+//@import "partials/team-teamlist.scss";
+
+//////////////// print ////////////////////////
+//at the very end of all we can do the print adaptions, thats reducing some loading time
+
+@import "partials/print.scss";

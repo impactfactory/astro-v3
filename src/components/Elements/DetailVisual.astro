@@ -1,0 +1,31 @@
+---
+import { Picture } from "@astrojs/image/components";
+import { site } from "../../data/site";
+
+const { s } = Astro.props;
+const keyvisual: string = "/images/" + s.slug.substr(3) + "/keyvisual.jpg";
+---
+
+<div>
+  <Picture
+    alt={"Keyvisual " + s.data.name}
+    aspectRatio="10:4"
+    background="#fff"
+    class="keyvisual"
+    formats={["avif", "webp", "jpg", "jpeg"]}
+    sizes={site.landscapeSizes}
+    src={keyvisual}
+    widths={site.breakpoints}
+    width="100%"
+  />
+</div>
+
+<style>
+  div {
+    padding: var(--padd-md) 0 0 0;
+  }
+
+  img {
+    aspect-ratio: 10 / 4;
+  }
+</style>

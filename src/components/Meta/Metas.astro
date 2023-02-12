@@ -1,0 +1,17 @@
+---
+const { desc, lang, site, title } = Astro.props;
+
+let t: any = "";
+lang == "de" ? (t = site.languages.de) : (t = site.languages.en);
+---
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width" />
+<meta name="robots" content="index, follow" />
+<meta name="title" content={title + site.name} />
+<meta name="description" content={desc} />
+<meta name="author" content={site.author} />
+<meta name="copyright" content={site.copyright} />
+<meta name="generator" content={Astro.generator} />
+<meta name="google-site-verification" content="" />

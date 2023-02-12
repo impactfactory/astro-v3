@@ -1,0 +1,37 @@
+---
+import Icon from "astro-icon";
+import { site } from "@data/site";
+
+const { s } = Astro.props;
+const lang = s.id.substr(0, 2);
+
+let t: any = "";
+lang == "de"
+  ? (t = site.languages.de.components.links)
+  : (t = site.languages.en.components.links);
+---
+
+<section>
+  <h2>{t.title}</h2>
+  <ul>
+    {
+      s.data.links.map((link: any) => (
+        <li class="link">
+          <a href={link.url}>
+            <Icon name="mdi:earth-arrow-right" />
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  a svg {
+    padding: 0 var(--padd-xs) 0 0;
+    transform: translateY(var(--padd-xs));
+    width: 20px;
+    height: 20px;
+  }
+</style>

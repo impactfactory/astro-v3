@@ -1,0 +1,15 @@
+---
+const { desc, lang, site, title } = Astro.props;
+
+let t: any = "";
+lang == "de" ? (t = site.languages.de) : (t = site.languages.en);
+---
+
+<meta property="og:description" content={desc} />
+<meta property="og:image" content={"/images/preview_" + lang + ".jpg"} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:title" content={title + " " + site.name} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url.pathname} />

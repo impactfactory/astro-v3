@@ -1,0 +1,20 @@
+---
+const { lang } = Astro.props;
+
+let altlang: any = "";
+lang == "de" ? (altlang = "en") : (altlang = "de");
+---
+
+{
+  lang == "de" ? (
+    <>
+      <a href={Astro.url.pathname}>Deutsch</a> |
+      <a href={Astro.url.pathname.replace(lang, altlang)}>English</a>
+    </>
+  ) : (
+    <>
+      <a href={Astro.url.pathname.replace(lang, altlang)}>Deutsch</a> |
+      <a href={Astro.url.pathname}>English</a>
+    </>
+  )
+}

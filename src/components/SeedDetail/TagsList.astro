@@ -1,0 +1,101 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Tags from "../Elements/Tags.astro";
+
+const animals: any = await getCollection("animals");
+const environments: any = await getCollection("environments");
+const plants: any = await getCollection("plants");
+const principles: any = await getCollection("principles");
+const { s } = Astro.props;
+const lang = s.id.substr(0, 2);
+
+function getAnimal(animal: string): CollectionEntry<"animals"> | undefined {
+  return animals.find((a: any) => a.slug === lang + "/animals/" + animal);
+}
+
+function getEnvironment(
+  environment: string
+): CollectionEntry<"environments"> | undefined {
+  return environments.find(
+    (e: any) => e.slug === lang + "/environments/" + environment
+  );
+}
+
+function getPlant(plant: string): CollectionEntry<"plants"> | undefined {
+  return plants.find((p: any) => p.slug === lang + "/plants/" + plant);
+}
+
+function getPrinciple(
+  principle: string
+): CollectionEntry<"principles"> | undefined {
+  return principles.find(
+    (p: any) => p.slug === lang + "/principles/" + principle
+  );
+}
+---
+
+<section class="taglist">
+  {
+        s.data.animals
+          .map((a: any) => getAnimal(a))
+          .map((animal: any) => (
+            <Tags
+              label={animal?.data.name}
+              url={"/" + animal?.slug}
+              classtype="animals"
+            />
+          ))
+      }
+
+      {
+        s.data.environments
+          .map((e: any) => getEnvironment(e))
+          .map((environment: any) => (
+            <Tags
+              label={environment?.data.name}
+              url={"/" + environment?.slug}
+              classtype="environments"
+            />
+          ))
+      }
+
+      {
+        s.data.plants
+          .map((p: any) => getPlant(p))
+          .map((plant: any) => (
+            <Tags
+              label={plant?.data.name}
+              url={"/" + plant?.slug}
+              classtype="plants"
+            />
+          ))
+      }
+
+      {
+        s.data.principles
+          .map((p: any) => getPrinciple(p))
+          .map((principle: any) => (
+            <Tags
+              label={principle?.data.name}
+              url={"/" + principle?.slug}
+              classtype="principles"
+            />
+          ))
+      }
+      {
+        s.data.synonyms
+          .map((syn: string) => (
+            <Tags
+              label={syn}
+              url={}
+              classtype="synonyms"
+            />
+          ))
+      }
+</section>
+
+<style>
+  .taglist {
+    padding: var(--padd-md) 0 0 0;
+  }
+</style>

@@ -1,0 +1,110 @@
+:root {
+  /*Breakpoints
+  // custom properties don't work in media queries ;(
+  --break-xs: 280px;
+  --break-sm: 320px;
+  --break-sm: 360px;
+  --break-md: 567px;
+  --break-lg: 768px;
+  --break-xl: 1024px;
+  --break-xxl: 1400px;
+  */
+
+  // Colors /////////////////
+
+  /* basic branding colors:
+--blue: 180 61% 67%;
+--green: 73, 100%, 42%;
+--orange: 28 100% 50%;
+--yellow: 54, 100%, 50%;
+  */
+
+  // white to black scale
+  --black: 0 0% 0%; /* #000 */
+  --dark: 189 50% 20%; /* hsl(0 0% 7% / 1); /* #111111;*/
+  --white: 0 100% 100%;
+  --light: 0 0% 94%;
+
+  // primary / for joy, creativity and warning highlighting
+  --prim-lgt: 32 85% 95%;
+  --prim: 28 100% 50%;
+  --prim-drk: 32 85% 30%;
+
+  // main background / a bright blue canvas for everything
+  --main-lgt: 189 60% 95%;
+  --main: 189 50% 70%;
+  --main-drk: 189 30% 70%;
+
+  // accent 1
+  --acc1-lgt: 180 61% 95%;
+  --acc1: 180 61% 67%;
+  --acc1-drk: 180 61% 30%;
+
+  // accent 2
+  --acc2-lgt: 100 29% 92%;
+  --acc2: 100 54% 85%;
+  --acc2-drk: 100 85% 80%;
+
+  // technical
+  --tec-lgt: 0 0% 70%;
+  --tec: 0 0% 50%;
+  --tec-drk: 0 0% 25%;
+
+  // Buttons /////////////////
+  --btn-bg: hsl(var(--prim) / 1);
+  --btn-color: hsl(var(--light) / 1);
+  --btn-padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  --btn-radius: 10px;
+
+  // Typography /////////////////
+  --baseFontSize: 18; // in pixels. This would result in 22px on desktop
+  --baseLineHeight: 1.5; // how large the line height is as a multiple of font size
+  --leading: calc(var(--baseLineHeight) * 1rem);
+  --scale: 1.414 /* original: 1.414 */;
+
+  --fs-xs: 10px;
+  --fs-sm: 14px;
+  --fs-md: calc(var(--baseFontSize) / 16 * 100%);
+
+  --fs-xl: 64px;
+
+  --fw-xs: 200;
+  --fw-sm: 300;
+  --fw-md: 400;
+  --fw-lg: 600;
+  --fw-xl: 700;
+
+  // MedicoSearch iFrame ////////
+  --fs-medico: calc(var(--baseFontSize) / 16 * 100%);
+  --body-color-medico: hsl(var(--black) / 1);
+
+  // Components /////////////////
+  --rad-xs: 4px;
+  --rad-md: 8px;
+  --rad-lg: 16px;
+  --rad-xl: 32px;
+  --shad-md: 0px 10px 15px -3px hsl(var(--dark) / 1),
+    0px 10px 15px -3px hsl(var(-dark) / 1);
+
+  // Body /////////////////
+  --body-bg-gradient: linear-gradient(
+    to bottom,
+    hsl(var(--main-lgt) / 1) 0%,
+    hsl(var(--main) / 1) 45%,
+    hsl(var(--main-drk) / 1) 50%,
+    hsl(var(--main) / 1) 75%,
+    hsl(var(--main-lgt) / 1) 90%
+  );
+  --body-bg: hsl(var(--light) / 1);
+  --body-color: hsl(var(--black) / 1);
+
+  // Spaces /////////////////
+  --padd-xs: 0.25rem;
+  --padd-sm: 0.5rem;
+  --padd-md: 0.75rem;
+  --padd-1: 1rem;
+  --padd-lg: 2rem;
+  --padd-xl: 4rem;
+  --content-width: 1100px;
+  --content-padding: var(--padd-lg);
+}

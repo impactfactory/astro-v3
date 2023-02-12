@@ -1,0 +1,107 @@
+---
+import { Picture } from "@astrojs/image/components";
+import { CollectionEntry, getCollection } from "astro:content";
+
+const { s } = Astro.props;
+const authors = await getCollection("authors");
+const lang = s.id.substr(0, 2);
+const portrait: string = "/images/authors/" + s.slug.substr(8) + ".jpg";
+
+function getAuthor(author: string): CollectionEntry<"authors"> | undefined {
+  return authors.find((a: any) => a.slug === lang + "/authors/" + author);
+}
+---
+
+<section class="authorthumbs"></section>
+{
+  s.data.authors
+    .map((a: any) => getAuthor(a))
+    .map((author: any) => (
+      <>
+        <div class="authorthumb">
+          <a href={"/" + author.slug}>
+            <div class="mask">
+              <Picture
+                alt={
+                  "Thumbnail " +
+                  author.data.firstname +
+                  " " +
+                  author.data.lastname
+                }
+                aspectRatio="1:1"
+                background="transparent"
+                class="thumbnail"
+                fit="cover"
+                formats={["avif", "webp", "jpeg"]}
+                height="90px"
+                sizes={"(max-width: 1400px) 90px,90px"}
+                src={"/images/authors/" + author.slug.substr(11) + ".jpg"}
+                position="center"
+                width="90px"
+                widths={[90, 180]}
+                style=""
+              />
+            </div>
+          </a>
+          <a href={"/" + author.slug} class="name">
+            {author.data.firstname}
+            <br />
+            {author.data.lastname}
+          </a>
+        </div>
+      </>
+    ))
+}
+
+<style>
+  .authorthumb {
+    background: white;
+    display: flex;
+    margin-bottom: -112px;
+    padding: var(--padd-sm);
+    width: 180px;
+    transform: translateY(-112px);
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.1px);
+    -webkit-backdrop-filter: blur(10.1px);
+  }
+
+  .mask {
+    background-color: white;
+    display: block;
+    aspect-ratio: 1/1;
+    border-radius: 0 var(--btn-radius) 0 0;
+    overflow: hidden;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjAwJyBoZWlnaHQ9JzIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNMTAwIDBDMjAgMCAwIDIwIDAgMTAwczIwIDEwMCAxMDAgMTAwIDEwMC0yMCAxMDAtMTAwUzE4MCAwIDEwMCAwWicvPjwvc3ZnPg==);
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjAwJyBoZWlnaHQ9JzIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNMTAwIDBDMjAgMCAwIDIwIDAgMTAwczIwIDEwMCAxMDAgMTAwIDEwMC0yMCAxMDAtMTAwUzE4MCAwIDEwMCAwWicvPjwvc3ZnPg==);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    width: 5rem;
+  }
+
+  .thumbnail {
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    vertical-align: middle;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+  }
+
+  .name {
+    color: hsl(var(--white));
+    display: inline-block;
+    font-weight: var(--fw-lg);
+    height: 90px;
+    padding: 28px 0 0 var(--padd-sm);
+  }
+</style>

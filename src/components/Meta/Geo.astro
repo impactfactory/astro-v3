@@ -1,0 +1,9 @@
+---
+const { org } = Astro.props;
+const geo = org.longitude + ";" + org.latitude;
+const placename = org.city + "," + org.country;
+---
+
+<meta name="geo.position" content={geo} />
+<meta name="geo.region" content={org.region} />
+<meta name="geo.placename" content={placename} />

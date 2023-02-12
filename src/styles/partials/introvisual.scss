@@ -1,0 +1,185 @@
+.intro {
+  width: 100%;
+
+  .introvisual {
+    overflow: hidden;
+    height: var(--shift);
+    width: 100%;
+
+    .media280,
+    .media320,
+    .media360,
+    .media567,
+    .media768,
+    .media1024,
+    .media1280,
+    .media1440 {
+      display: none;
+    }
+
+    img {
+      animation: kenburns 8s ease;
+      height: var(--shift);
+      position: relative;
+      width: 100%;
+    }
+
+    .overlay {
+      box-sizing: border-box;
+      text-align: center;
+      width: 100%;
+      z-index: 100;
+
+      h1 {
+        color: hsl(var(--light));
+        display: inline;
+        font-size: var(--font-size);
+        line-height: calc(var(--font-size) * var(--leading));
+      }
+    }
+  }
+
+  .introtext {
+    width: 100% {
+      margin-top: 0;
+    }
+  }
+
+  /* Animation Keyframes */
+
+  @keyframes kenburns {
+    0% {
+      //transform-origin: center; Lighthouse doesnt love me ;(
+      transform: scale(1.2);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+/* media queries */
+
+@media only screen and (min-width: 20px) and (max-width: 280px) {
+  .intro .introvisual {
+    --shift: 150vw;
+    --font-size: calc(var(--shift) / 11);
+
+    .media280 {
+      display: block;
+    }
+
+    .overlay {
+      transform: translateY(calc(var(--shift) * -0.6));
+    }
+  }
+}
+
+@media only screen and (min-width: 281px) and (max-width: 320px) {
+  .intro .introvisual {
+    --shift: 140vw;
+    --font-size: calc(var(--shift) / 12);
+
+    .media320 {
+      display: block;
+    }
+
+    .overlay {
+      transform: translateY(calc(var(--shift) * -0.6));
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 360px) {
+  .intro .introvisual {
+    --shift: 120vw;
+    --font-size: calc(var(--shift) / 12);
+
+    .media360 {
+      display: block;
+    }
+
+    .overlay {
+      transform: translateY(calc(var(--shift) * -0.6));
+    }
+  }
+}
+
+@media only screen and (min-width: 361px) and (max-width: 567px) {
+  .intro .introvisual {
+    --shift: 90vw;
+    --font-size: calc(var(--shift) / 15);
+
+    .media567 {
+      display: block;
+    }
+
+    .overlay {
+      transform: translateY(calc(var(--shift) * -0.6));
+    }
+  }
+}
+
+@media only screen and (min-width: 568px) and (max-width: 768px) {
+  .intro .introvisual {
+    --shift: 80vw;
+    --font-size: calc(var(--shift) / 14);
+
+    .media768 {
+      display: block;
+    }
+
+    .overlay {
+      transform: translateY(calc(var(--shift) * -0.6));
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .intro .introvisual {
+    --shift: 70vw;
+    --font-size: calc(var(--shift) / 13);
+
+    .media1024 {
+      display: block;
+    }
+
+    .overlay {
+      transform: translateY(calc(var(--shift) * -0.6));
+    }
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+  .intro .introvisual {
+    --shift: 45vw;
+    --font-size: calc(var(--shift) / 9);
+
+    .media1440 {
+      display: block;
+    }
+
+    .overlay {
+      transform: translateY(calc(var(--shift) * -0.6));
+    }
+  }
+}
+
+@media only screen and (min-width: 1281px) {
+  .intro .introvisual {
+    --shift: 45vw;
+    --font-size: calc(var(--shift) / 9);
+
+    .media1440 {
+      display: block;
+    }
+
+    .overlay {
+      transform: translateY(calc(var(--shift) * -0.6));
+    }
+  }
+}

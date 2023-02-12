@@ -1,0 +1,41 @@
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: [header] auto [main] 1fr [footer] auto;
+  background-color: hsla(5, 0%, 100%, 1);
+  background-image: radial-gradient(
+      at 27% 69%,
+      hsla(180, 59%, 67%, 0.2) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 20% 87%, hsla(73, 100%, 42%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 82% 67%, hsla(28, 100%, 50%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 65% 56%, hsla(54, 100%, 50%, 0.2) 0px, transparent 50%);
+  background-repeat: space;
+  min-height: 100vh;
+  min-width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+main {
+}
+
+@media screen and (min-width: 768px) {
+}

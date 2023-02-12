@@ -1,0 +1,39 @@
+---
+//import Adsense from "@components/Meta/Adsense.astro";
+//import Breadcrumbs from "@components/Elements/Breadcrumbs/Breadcrumbs.astro";
+import Footer from "@components/Footer/Footer.astro";
+import Facebook from "@components/Meta/Facebook.astro";
+import Favicons from "@components/Meta/Favicons.astro";
+import Header from "@components/Header/Header.astro";
+import Linkrel from "@components/Meta/Linkrel.astro";
+import Metas from "@components/Meta/Metas.astro";
+import { site } from "@data/site";
+import Twitter from "@components/Meta/Twitter.astro";
+import "../styles/custom.scss";
+const { bc_cat, bc_catname, desc, lang, t, title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <Metas site={site} title={title} desc={desc} lang={lang} />
+    <!--<Preconnect /> -->
+    <Linkrel site={site} lang={lang} />
+    <title>
+      {title + site.name}
+    </title>
+    <Facebook site={site} title={title} desc={desc} lang={lang} site={site} />
+    <Twitter site={site} title={title} desc={desc} lang={lang} />
+    <Favicons site={site} />
+    <!--<Adsense />-->
+  </head>
+  <body>
+    <Header lang={lang} site={site} />
+    <main class="indent-me">
+      <!--<Breadcrumbs cat={bc_cat} cat_name={bc_catname} />-->
+      <slot name="main" />
+    </main>
+    <Footer lang={lang} site={site} />
+    <slot name="json" />
+  </body>
+</html>

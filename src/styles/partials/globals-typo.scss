@@ -1,0 +1,112 @@
+/*! Typebase.less v0.1.0 | MIT License */
+
+/* Setup */
+html {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: var(--fs-md);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  color: var(--body-color);
+
+  a {
+    color: hsl(var(--prim));
+    text-decoration: none;
+  }
+}
+
+p {
+  line-height: var(--leading);
+  margin-top: calc(var(--leading) / 1.6);
+  margin-bottom: 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
+
+  a {
+    color: var(--body-color);
+    text-decoration: underline;
+  }
+}
+
+ul,
+ol {
+  margin-top: var(--leading);
+  margin-bottom: var(--leading);
+
+  li {
+    line-height: var(--leading);
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+blockquote {
+  line-height: var(--leading);
+  margin-top: var(--leading);
+  margin-bottom: var(--leading);
+}
+
+/* Headings */
+h2,
+h3,
+h4,
+h5,
+h6 {
+  hyphens: auto;
+  line-height: var(--leading);
+  margin-top: var(--leading);
+  margin-bottom: 0;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: calc(2.4 * var(--scale) * 1rem);
+  font-weight: var(--fw-lg);
+  line-height: calc(2.4 * var(--leading));
+  margin-top: 0;
+}
+h2 {
+  font-size: calc(1.4 * var(--scale) * 1rem);
+  line-height: calc(1.4 * var(--leading));
+  margin-top: calc(1.4 * var(--leading));
+}
+h3 {
+  font-size: calc(0.9 * var(--scale) * 1rem);
+}
+h4 {
+  font-size: var(--fs-md);
+}
+h5 {
+  font-size: calc(var(--scale) / 3 * 1rem);
+}
+h6 {
+  font-size: calc(var(--scale) / 4 * 1rem);
+}
+
+/* Tables */
+table {
+  margin-top: var(--leading);
+  border-spacing: 0px;
+  border-collapse: collapse;
+
+  td,
+  th {
+    padding: 0;
+    line-height: calc(var(--baseLineHeight) * var(--baseFontSize) - 0px);
+  }
+}
+
+/* Code blocks */
+code {
+  // Forces text to constrain to the line-height. Not ideal, but works.
+  vertical-align: bottom;
+}
