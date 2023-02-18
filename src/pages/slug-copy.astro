@@ -1,0 +1,56 @@
+---
+import AuthorThumb from "@components/Elements/AuthorThumb.astro";
+import DescShort from "@components/SeedDetail/DescShort.astro";
+import DetailVisual from "@components/Elements/DetailVisual.astro";
+import Gallery from "@components/SeedDetail/Gallery.astro";
+import { getCollection } from "astro:content";
+import HowTo from "@components/SeedDetail/HowTo.astro";
+import Inspirational from "@components/SeedDetail/Inspirational.astro";
+import Linklist from "@components/SeedDetail/Linklist.astro";
+import Seed from "@layouts/Seed.astro";
+import TagsList from "@components/SeedDetail/TagsList.astro";
+
+export async function getStaticPaths() {
+  const seeds = await getCollection("seeds");
+  return seeds.map((s) => ({
+    params: { slug: s.slug },
+    props: { s },
+  }));
+}
+
+const { s } = Astro.props;
+const lang = s.id.substr(0, 2);
+---
+
+<Seed title={s.data.name} desc={s.data.desc_short} lang={lang}>
+  <div slot="main">
+    <article class="seeddetail">
+      <h1>{s.data.name}</h1>
+
+      <DetailVisual s={s} />
+
+      <AuthorThumb s={s} />
+
+      {s.data.desc_short && <DescShort desc={s.data.desc_short} />}
+
+      {s.data.steps && <HowTo s={s} />}
+
+      {s.data.gallery && <Gallery s={s} />}
+
+      {
+        s.data.inspirational && (
+          <Inspirational inspirational={s.data.inspirational} />
+        )
+      }
+
+      <TagsList s={s} />
+      {s.data.links && <Linklist s={s} />}
+
+      <style>
+        h1 {
+          margin: 0 0 0 0;
+        }
+      </style>
+    </article>
+  </div>
+</Seed>

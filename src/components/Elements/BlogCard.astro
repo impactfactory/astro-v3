@@ -1,0 +1,61 @@
+---
+import { Picture } from "@astrojs/image/components";
+
+export interface Props {
+  a: any;
+  lang: string;
+}
+
+const { a, lang } = Astro.props;
+---
+
+<div class="card">
+  <div class="card-body">
+    <a href={"/" + a.slug}>
+      <h3>
+        {a.data.name}
+        <span>&rarr;</span>
+      </h3>
+      <p>
+        {a.data.desc_short.substring(0, 80) + "..."}
+      </p>
+    </a>
+  </div>
+</div>
+
+<style>
+  .card {
+    flex-direction: row;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: var(--padd-md);
+    background-color: white;
+    border-radius: var(--rad-md);
+    background-position: 100%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+
+  .card > a {
+    text-decoration: none;
+  }
+
+  .card-body {
+    padding: var(--padd-sm);
+  }
+  h3 {
+    padding: 0;
+    margin: 0;
+  }
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: #444;
+  }
+  .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+  }
+  .link-card:is(:hover, :focus-within) h2 {
+    color: rgb(var(--accent));
+  }
+</style>

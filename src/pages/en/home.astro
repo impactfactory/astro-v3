@@ -1,0 +1,23 @@
+---
+import Frontpage from "@layouts/Frontpage.astro";
+import Card from "@components/Card.astro";
+import { getCollection } from "astro:content";
+
+const allSeeds = await getCollection("seeds", ({ id, data }) => {
+  return id.startsWith("en/") && data.draft == false;
+});
+---
+
+<Frontpage lang="en">
+  <div slot="main">
+    <h1>Welcome</h1>
+    <p>english Text</p>
+
+    {
+      allSeeds.map((s) => (
+        <Card href={s.slug} title={s.data.name} body={s.data.desc_short} />
+        {s.slug}
+      ))
+    }
+  </div>
+</Frontpage>

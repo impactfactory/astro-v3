@@ -1,0 +1,16 @@
+---
+import BlogPost from "@layouts/BlogPost.astro";
+
+const { item, lang } = Astro.props;
+const { Content } = await item.render();
+---
+
+<BlogPost title={item.data.name} desc={item.data.desc_short} lang={lang}>
+  <div slot="main">
+    <article class="seeddetail">
+      <h1>{item.data.name}</h1>
+
+      <Content />
+    </article>
+  </div>
+</BlogPost>

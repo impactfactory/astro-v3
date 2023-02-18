@@ -1,56 +1,59 @@
 ---
-import AuthorThumb from "@components/Elements/AuthorThumb.astro";
-import DescShort from "@components/SeedDetail/DescShort.astro";
-import DetailVisual from "@components/Elements/DetailVisual.astro";
-import Gallery from "@components/SeedDetail/Gallery.astro";
 import { getCollection } from "astro:content";
-import HowTo from "@components/SeedDetail/HowTo.astro";
-import Inspirational from "@components/SeedDetail/Inspirational.astro";
-import Linklist from "@components/SeedDetail/Linklist.astro";
-import Seed from "@layouts/Seed.astro";
-import TagsList from "@components/SeedDetail/TagsList.astro";
+
+import AnimalDetail from "@components/AnimalDetail/AnimalDetail.astro";
+import ArticleDetail from "@components/ArticleDetail/ArticleDetail.astro";
+import AuthorDetail from "@components/AuthorDetail/AuthorDetail.astro";
+import EnvironmentDetail from "@components/EnvironmentDetail/EnvironmentDetail.astro";
+import PlantDetail from "@components/PlantDetail/PlantDetail.astro";
+import PrincipleDetail from "@components/PrincipleDetail/PrincipleDetail.astro";
+import SeedDetail from "@components/SeedDetail/SeedDetail.astro";
 
 export async function getStaticPaths() {
-  const seeds = await getCollection("seeds");
-  return seeds.map((s) => ({
-    params: { slug: s.slug },
-    props: { s },
+  const animals: any = await getCollection("animals");
+  const articles: any = await getCollection("articles");
+  const authors: any = await getCollection("authors");
+  const environments: any = await getCollection("environments");
+  const plants: any = await getCollection("plants");
+  const principles: any = await getCollection("principles");
+  const seeds: any = await getCollection("seeds");
+
+  const flattendCollections: any = seeds.concat(
+    animals,
+    articles,
+    authors,
+    environments,
+    plants,
+    principles
+  );
+  return flattendCollections.map((item: any) => ({
+    params: { slug: item.slug },
+    props: { item },
   }));
 }
 
-const { s } = Astro.props;
-const lang = s.id.substr(0, 2);
+const { item } = Astro.props;
+const lang = item.id.substr(0, 2);
 ---
 
-<Seed title={s.data.name} desc={s.data.desc_short} lang={lang}>
-  <div slot="main">
-    <article class="seeddetail">
-      <h1>{s.data.name}</h1>
-
-      <DetailVisual s={s} />
-
-      <AuthorThumb s={s} />
-
-      {s.data.desc_short && <DescShort desc={s.data.desc_short} />}
-
-      {s.data.steps && <HowTo s={s} />}
-
-      {s.data.gallery && <Gallery s={s} />}
-
-      {
-        s.data.inspirational && (
-          <Inspirational inspirational={s.data.inspirational} />
-        )
-      }
-
-      <TagsList s={s} />
-      {s.data.links && <Linklist s={s} />}
-
-      <style>
-        h1 {
-          margin: 0 0 0 0;
-        }
-      </style>
-    </article>
-  </div>
-</Seed>
+{
+  item.collection == "animals" ? (
+    <AnimalDetail item={item} lang={lang} />
+  ) : item.collection == "articles" ? (
+    <ArticleDetail item={item} lang={lang} />
+  ) : item.collection == "authors" ? (
+    <AuthorDetail item={item} lang={lang} />
+  ) : item.collection == "environments" ? (
+    <EnvironmentDetail item={item} lang={lang} />
+  ) : item.collection == "plants" ? (
+    <PlantDetail item={item} lang={lang} />
+  ) : item.collection == "principles" ? (
+    <PrincipleDetail item={item} lang={lang} />
+  ) : item.collection == "seeds" ? (
+    <SeedDetail s={item} lang={lang} />
+  ) : (
+    console.log(
+      "This collection seems unknown or new and uncatched in the [...slug].astro Page Code..."
+    )
+  )
+}

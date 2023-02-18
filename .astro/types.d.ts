@@ -104,19 +104,19 @@ declare module 'astro:content' {
 },
 },
 "articles": {
-"de/01022023.mdx": {
-  id: "de/01022023.mdx",
-  slug: "de/01022023",
+"de/articles/01022023.mdx": {
+  id: "de/articles/01022023.mdx",
+  slug: "de/articles/01022023",
   body: string,
   collection: "articles",
-  data: any
+  data: InferEntrySchema<"articles">
 },
-"de/01032023.mdx": {
-  id: "de/01032023.mdx",
-  slug: "de/01032023",
+"de/articles/02022023.mdx": {
+  id: "de/articles/02022023.mdx",
+  slug: "de/articles/02022023",
   body: string,
   collection: "articles",
-  data: any
+  data: InferEntrySchema<"articles">
 },
 },
 "authors": {
@@ -310,9 +310,9 @@ declare module 'astro:content' {
   collection: "seeds",
   data: InferEntrySchema<"seeds">
 },
-"de/seeds/habitariuminsektoum.mdx": {
-  id: "de/seeds/habitariuminsektoum.mdx",
-  slug: "de/seeds/habitariuminsektoum",
+"de/seeds/habitariuminsektorum.mdx": {
+  id: "de/seeds/habitariuminsektorum.mdx",
+  slug: "de/seeds/habitariuminsektorum",
   body: string,
   collection: "seeds",
   data: InferEntrySchema<"seeds">

@@ -2,9 +2,9 @@
 
 import { z } from "astro:content";
 
-export const articlesSchema: any = {
+export const articlesSchema: any = z.object({
   name: z.string(),
-  desc: z.string().optional(),
+  desc_short: z.string().optional(),
   draft: z.boolean(),
   keyvisual: z
     .object({
@@ -12,4 +12,4 @@ export const articlesSchema: any = {
       alt: z.string(),
     })
     .optional(),
-};
+});

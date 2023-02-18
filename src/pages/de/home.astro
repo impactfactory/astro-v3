@@ -1,0 +1,30 @@
+---
+import Frontpage from "@layouts/Frontpage.astro";
+import Card from "@components/Elements/SeedCard.astro";
+import { getCollection } from "astro:content";
+
+const allSeeds = await getCollection("seeds", ({ id, data }) => {
+  return id.startsWith("de/") && data.draft == false;
+});
+---
+
+<Frontpage lang="de">
+  <div slot="main">
+    <h1>Willkommen</h1>
+    <p>Text Bla</p>
+    <section class="seedscards">
+      {allSeeds.map((s) => <Card s={s} />)}
+    </section>
+  </div>
+</Frontpage>
+
+<style>
+  .seedscards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+    gap: var(--padd-md);
+  }
+</style>

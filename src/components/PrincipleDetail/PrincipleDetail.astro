@@ -1,0 +1,13 @@
+---
+import Seed from "@layouts/Seed.astro";
+
+const { item, lang } = Astro.props;
+---
+
+<Seed title={item.data.name} desc={item.data.desc_short} lang={lang}>
+  <div slot="main">
+    <article class="seeddetail">
+      <h1>{item.data.name} from {item.collection} in Language: {lang}</h1>
+    </article>
+  </div>
+</Seed>

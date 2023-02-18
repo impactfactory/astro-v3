@@ -1,0 +1,30 @@
+---
+import Default from "@layouts/Default.astro";
+import Card from "@components/Card.astro";
+import { getCollection } from "astro:content";
+
+const allArticles = await getCollection("articles", ({ id, data }) => {
+  return id.startsWith("en/") && data.draft == false;
+});
+---
+
+<Default
+  desc="Articles about the Project, Authros and Seeds"
+  lang="en"
+  title="Seeds Blog"
+>
+  <div slot="main">
+    <h1>Blog</h1>
+    <p>Articles here...</p>
+
+    {
+      allArticles.map((s) => (
+        <Card
+          href={"/" + s.slug}
+          title={s.data.name}
+          body={s.data.desc_short}
+        />
+      ))
+    }
+  </div>
+</Default>

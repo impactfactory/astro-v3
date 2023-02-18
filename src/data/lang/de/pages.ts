@@ -14,19 +14,19 @@ export const pages = {
   dataprotection: {
     name: "Datenschutz",
     desc: "Unsere Datenschutz-Richtlinien und Massnahmen",
-    slug: "datenschutz",
+    slug: "dataprotection",
   },
   environments: {
     name: "Ökosysteme",
     desc: "Ökosysteme und Beschreibung",
     slug: "oekosysteme",
   },
-  frontpage: { name: "Home", desc: "Das Leben fördern", slug: "" },
+  frontpage: { name: "Home", desc: "Das Leben fördern", slug: "/de/home" },
   impactfactory: {
     name: "Design & Entwicklung: ImpactFactory",
     slug: "https://impactfactory.ch/de",
   },
-  imprint: { name: "Impressum", desc: "Impressum", slug: "impressum" },
+  imprint: { name: "Impressum", desc: "Impressum", slug: "imprint" },
   plants: {
     name: "Pflanzen",
     desc: "Liste der für die Seeds verwendeten Pflanzen",

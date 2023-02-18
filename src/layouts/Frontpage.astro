@@ -9,26 +9,30 @@ import { site } from "@data/site";
 import Twitter from "@components/Meta/Twitter.astro";
 import "../styles/custom.scss";
 
-const { bc_cat, bc_catname, desc, lang, t, title } = Astro.props;
-
-export interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+const lang: string = Astro.url.pathname.substr(1, 2);
+let t: any;
+lang == "de"
+  ? (t = site.languages.de.pages.frontpage)
+  : (t = site.languages.en.pages.frontpage);
 ---
 
 <!DOCTYPE html>
 <html lang={lang}>
   <head>
-    <Metas site={site} title={title} desc={desc} lang={lang} />
+    <Metas site={site} title={t.name} desc={t.desc} lang={lang} />
     <!--<Preconnect /> -->
     <Linkrel site={site} lang={lang} />
     <title>
-      {title + site.name}
+      {t.name + site.name}
     </title>
-    <Facebook site={site} title={title} desc={desc} lang={lang} site={site} />
-    <Twitter site={site} title={title} desc={desc} lang={lang} />
+    <Facebook
+      site={site}
+      title={t.name}
+      desc={t.desc}
+      lang={lang}
+      site={site}
+    />
+    <Twitter site={site} title={t.name} desc={t.desc} lang={lang} />
     <Favicons site={site} />
     <!--<Adsense />-->
   </head>

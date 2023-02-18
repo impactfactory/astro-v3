@@ -8,8 +8,11 @@ lang == "de" ? (t = site.languages.de) : (t = site.languages.en);
 
 <footer>
   <div class="indent-me">
-    <a href={lang + "/imprint"}>{t.pages.imprint.name}</a> |
-    <a href={lang + "/dataprotection"}>{t.pages.dataprotection.name}</a> |
+    <a href={"/" + lang + "/" + t.pages.imprint.slug}>{t.pages.imprint.name}</a>
+    |
+    <a href={"/" + lang + "/" + t.pages.dataprotection.slug}
+      >{t.pages.dataprotection.name}</a
+    > |
     <a href={"https://impactfactory.ch/" + lang}>{t.pages.impactfactory.name}</a
     > &copy; {today.getFullYear()}
   </div>
