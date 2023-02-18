@@ -1,13 +1,51 @@
 ---
+import { CollectionEntry, getCollection } from "astro:content";
 import Seed from "@layouts/Seed.astro";
-
+import Tags from "@components/Elements/Tags.astro";
+import { Icon } from "astro-icon";
+const animals: any = await getCollection("animals");
 const { item, lang } = Astro.props;
+const { Content } = await item.render();
+
+function getAnimal(animal: string): CollectionEntry<"animals"> | undefined {
+  return animals.find((a: any) => a.slug === lang + "/animals/" + animal);
+}
 ---
 
 <Seed title={item.data.name} desc={item.data.desc_short} lang={lang}>
   <div slot="main">
     <article class="seeddetail">
-      <h1>{item.data.name} from {item.collection} in Language: {lang}</h1>
+      <h1>
+        <span class="main-icon"><Icon name={item.data.icon.name} /></span>{
+          item.data.name
+        }
+      </h1>
+      <div>
+        <h3>erbeutet:</h3>
+        {
+          item.data.prey
+            .map((a: any) => getAnimal(a))
+            .map((animal: any) => (
+              <Tags
+                label={animal?.data.name}
+                url={"/" + animal?.slug}
+                classtype="animals"
+                icon={animal?.data.icon}
+              />
+            ))
+        }
+      </div>
+      <h3>Wissenswertes</h3>
+      <Content />
     </article>
   </div>
 </Seed>
+
+<slot name="cc"><span set:html={item.data.icon.cc} /></slot>
+
+<style>
+  .main-icon svg {
+    width: 3rem;
+    height: 3rem;
+  }
+</style>

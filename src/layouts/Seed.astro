@@ -34,6 +34,7 @@ const { bc_cat, bc_catname, desc, lang, t, title } = Astro.props;
       <slot name="main" />
     </main>
     <Footer lang={lang} site={site} />
+    <slot name="cc" />
     <slot name="json" />
   </body>
 </html>
