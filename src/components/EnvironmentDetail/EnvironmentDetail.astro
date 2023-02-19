@@ -10,7 +10,7 @@ const seeds: any = await getCollection("seeds", (s: any) => {
   return (
     s.data.draft == false &&
     s.slug.substring(0, 2) == lang &&
-    s.data.environments.includes("garden")
+    s.data.environments.includes(item.slug.substring(16))
   );
 });
 

@@ -7,8 +7,12 @@ import Default from "@layouts/Default.astro";
 const { item, lang } = Astro.props;
 const { Content } = await item.render();
 
-const seeds: any = await getCollection("seeds", ({ data }) => {
-  return data.authors == item.slug.substring(11);
+const seeds: any = await getCollection("seeds", (s) => {
+  return (
+    s.data.authors == item.slug.substring(11) &&
+    s.data.draft == false &&
+    s.slug.substring(0, 2) == lang
+  );
 });
 
 const articles: any = await getCollection("articles", (a) => {
@@ -51,7 +55,7 @@ lang == "de"
         </h1>
         <Content />
         <div class="contributions">
-          <h3>Bisherige Beiträge</h3>
+          <h3>{t.contributions}</h3>
           <ul>
             {
               seeds.map((s: any) => (

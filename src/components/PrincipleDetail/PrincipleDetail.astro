@@ -1,13 +1,30 @@
 ---
-import Seed from "@layouts/Seed.astro";
-
+import { getCollection } from "astro:content";
+import Default from "@layouts/Default.astro";
+import { site } from "@data/site";
+import SeedsList from "@components/EnvironmentDetail/SeedsList.astro";
 const { item, lang } = Astro.props;
+const { Content } = await item.render();
+const seeds: any = await getCollection("seeds", (s: any) => {
+  return (
+    s.data.draft == false &&
+    s.slug.substring(0, 2) == lang &&
+    s.data.principles.includes(item.slug.substring(14))
+  );
+});
+
+let t: any = "";
+lang == "de"
+  ? (t = site.languages.de.components.principledetail)
+  : (t = site.languages.en.components.principledetail);
 ---
 
-<Seed title={item.data.name} desc={item.data.desc_short} lang={lang}>
+<Default title={item.data.name} desc={item.data.desc_short} lang={lang}>
   <div slot="main">
     <article class="seeddetail">
-      <h1>{item.data.name} from {item.collection} in Language: {lang}</h1>
+      <h1>{item.data.name}</h1>
+      <Content />
+      {seeds.length != 0 && <SeedsList seeds={seeds} t={t} item={item} />}
     </article>
   </div>
-</Seed>
+</Default>

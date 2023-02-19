@@ -30,4 +30,10 @@ export const components = {
   links: {
     title: "Weiterführendes",
   },
+  plantdetail: {
+    seeds: "Seeds mit der Pflanze",
+  },
+  principledetail: {
+    seeds: "Folgende Seeds nutzen das Designprinzip",
+  },
 };
