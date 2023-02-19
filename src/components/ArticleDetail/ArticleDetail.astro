@@ -1,14 +1,22 @@
 ---
+import { getCollection, getEntryBySlug } from "astro:content";
 import BlogPost from "@layouts/BlogPost.astro";
 
 const { item, lang } = Astro.props;
 const { Content } = await item.render();
+const author: any = await getEntryBySlug(
+  "authors",
+  lang + "/authors/" + item.data.author
+);
 ---
 
 <BlogPost title={item.data.name} desc={item.data.desc_short} lang={lang}>
   <div slot="main">
     <article class="seeddetail">
       <h1>{item.data.name}</h1>
+      <a href={"/" + author.slug}
+        >{author.data.firstname + " " + author.data.lastname}</a
+      > - {item.data.date}
 
       <Content />
     </article>

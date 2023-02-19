@@ -3,7 +3,8 @@
 import { z } from "astro:content";
 
 export const articlesSchema: any = z.object({
-  name: z.string(),
+  author: z.string().default(""),
+  date: z.string().default(""),
   desc_short: z.string().optional(),
   draft: z.boolean(),
   keyvisual: z
@@ -12,4 +13,5 @@ export const articlesSchema: any = z.object({
       alt: z.string(),
     })
     .optional(),
+  name: z.string(),
 });

@@ -1,4 +1,9 @@
 export const components = {
+  authordetail: {
+    article: "Article",
+    contributions: "Contributions so far",
+    seed: "Seed",
+  },
   footer: {
     concept: "Konzept & Entwicklung: ImpactFactory",
     dataprotection: "Datenschutz",

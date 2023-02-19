@@ -1,13 +1,92 @@
 ---
-import Seed from "@layouts/Seed.astro";
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import { site } from "@data/site";
+import Default from "@layouts/Default.astro";
 
 const { item, lang } = Astro.props;
+const { Content } = await item.render();
+
+const seeds: any = await getCollection("seeds", ({ data }) => {
+  return data.authors == item.slug.substring(11);
+});
+
+const articles: any = await getCollection("articles", (a) => {
+  return (
+    a.data.author == item.slug.substring(11) &&
+    a.data.draft == false &&
+    a.slug.substring(0, 2) == lang
+  );
+});
+
+let t: any = "";
+lang == "de"
+  ? (t = site.languages.de.components.authordetail)
+  : (t = site.languages.en.components.authordetail);
 ---
 
-<Seed title={item.data.name} desc={item.data.desc_short} lang={lang}>
+<Default
+  title={item.data.firstname + " " + item.data.lastname}
+  desc={"Portrait " + item.data.firstname + " " + item.data.lastname}
+  lang={lang}
+>
   <div slot="main">
     <article class="seeddetail">
-      <h1>{item.data.name} from {item.collection} in Language: {lang}</h1>
+      <div class="portrait">
+        <Picture
+          alt={"Portrait " + item.data.firstname + " " + item.data.lastname}
+          aspectRatio="1:2"
+          background="#fff"
+          class="portrait"
+          formats={["avif", "webp", "jpg", "jpeg"]}
+          sizes={site.landscapeSizes}
+          src={"/images/" + item.slug.substring(2) + ".jpg"}
+          widths={site.breakpoints}
+          width="100%"
+        />
+      </div>
+      <div class="content">
+        <h1>
+          {item.data.firstname + " " + item.data.lastname}
+        </h1>
+        <Content />
+        <div class="contributions">
+          <h3>Bisherige Beiträge</h3>
+          <ul>
+            {
+              seeds.map((s: any) => (
+                <li>
+                  <a href={"/" + s.slug}>{s.data.name + " (" + t.seed + ")"}</a>
+                </li>
+              ))
+            }
+            {
+              articles.map((a: any) => (
+                <li>
+                  <a href={"/" + a.slug}>
+                    {a.data.name + " (" + t.article + ")"}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
     </article>
+
+    <style>
+      .seeddetail {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: var(--padd-md);
+      }
+      .portrait {
+        float: left;
+        height: auto;
+      }
+
+      .content {
+      }
+    </style>
   </div>
-</Seed>
+</Default>

@@ -2,10 +2,7 @@
 draft: false
 firstname: Kai
 lastname: Pulfer
-website: https://impactfactory.ch/en
-desc: Developer Seeds
+website: https://impactfactory.ch
 ---
 
-# Irgendwas
-
-bla bla
+Developer of the Seeds Project. More about me on my [website](https://impactfactory.ch/en/kai-pulfer).

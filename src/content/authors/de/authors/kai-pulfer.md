@@ -1,11 +1,8 @@
 ---
-desc: Entwickler Seeds
 draft: false
 firstname: Kai
 lastname: Pulfer
 website: https://impactfactory.ch
 ---
 
-# Irgendwas
-
-bla bla
+Entwickler des Projektes Seeds. Mehr zu mir auf meiner [Website](https://impactfactory.ch/de/kai-pulfer).
