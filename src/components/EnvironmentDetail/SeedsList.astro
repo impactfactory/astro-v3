@@ -1,0 +1,15 @@
+---
+const { item, seeds, t } = Astro.props;
+---
+
+<h3>{t.seeds + " " + item.data.name}</h3>
+
+<ul>
+  {
+    seeds.map((s: any) => (
+      <li>
+        <a href={"/" + s.slug}>{s.data.name}</a>
+      </li>
+    ))
+  }
+</ul>

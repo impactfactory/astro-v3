@@ -4,6 +4,9 @@ export const components = {
     contributions: "Contributions so far",
     seed: "Seed",
   },
+  environmentdetail: {
+    seeds: "Seeds for the Ecosystem",
+  },
   footer: {
     concept: "Konzept & Entwicklung: ImpactFactory",
     dataprotection: "Datenschutz",
