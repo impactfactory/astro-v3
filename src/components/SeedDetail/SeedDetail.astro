@@ -24,9 +24,9 @@ const lang = s.id.substr(0, 2);
 
       {s.data.desc_short && <DescShort desc={s.data.desc_short} />}
 
-      {s.data.steps && <HowTo s={s} />}
+      {s.data.steps.length != 0 && <HowTo s={s} />}
 
-      {s.data.gallery && <Gallery s={s} />}
+      {s.data.gallery.length != 0 && <Gallery s={s} />}
 
       {
         s.data.inspirational && (
@@ -35,7 +35,8 @@ const lang = s.id.substr(0, 2);
       }
 
       <TagsList s={s} />
-      {s.data.links && <Linklist s={s} />}
+
+      {s.data.links.length != 0 && <Linklist s={s} />}
 
       <style>
         h1 {

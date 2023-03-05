@@ -10,27 +10,28 @@ const { s } = Astro.props;
 
 <div class="card">
   <div class="card-img">
-    <Picture
-      alt={"Thumbnail " + s.data.name}
-      aspectRatio="1:1"
-      background="transparent"
-      class="thumbnail"
-      fit="cover"
-      formats={["avif", "webp", "jpeg"]}
-      height="90px"
-      sizes={"(max-width: 1400px) 90px,90px"}
-      src={"/images/seeds/" + s.slug.substr(9) + "/keyvisual.jpg"}
-      position="center"
-      width="90px"
-      widths={[90, 180]}
-      style=""
-    />
+    <a href={"/" + s.slug}>
+      <Picture
+        alt={"Thumbnail " + s.data.name}
+        aspectRatio="20:12"
+        background="transparent"
+        class="thumbnail"
+        fit="cover"
+        formats={["avif", "webp", "jpeg"]}
+        height="120px"
+        sizes={"(max-width: 1400px) 200px,400px"}
+        src={"/images/seeds/" + s.slug.substr(9) + "/keyvisual.jpg"}
+        position="center"
+        width="200px"
+        widths={[90, 180]}
+        style=""
+      />
+    </a>
   </div>
   <div class="card-body">
     <a href={"/" + s.slug}>
       <h3>
         {s.data.name}
-        <span>&rarr;</span>
       </h3>
       <p>
         {s.data.desc_short.substring(0, 80) + "..."}
@@ -41,44 +42,46 @@ const { s } = Astro.props;
 
 <style>
   .card {
-    flex-direction: row;
-    flex-grow: 1;
-    flex-basis: 200px;
-    padding: var(--padd-md);
-    background-color: white;
-    border-radius: var(--rad-md);
-    background-position: 100%;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    break-inside: avoid;
+    margin-bottom: calc((120px - var(--padd-md)) * -1);
   }
-
   .card > a {
     text-decoration: none;
   }
 
   .card-img {
-    float: left;
-    height: auto;
-    width: auto;
-    padding-right: var(--padd-md);
+    height: 120px;
+    overflow: hidden;
+    width: 100%;
+  }
 
-    img,
-    picture {
-      height: 90px;
-      width: 90px;
-    }
+  .card-img img,
+  .card-img picture {
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
   }
+
   .card-body {
-    padding: var(--padd-sm);
+    transform: translateY(-120px);
   }
+
   h3 {
-    padding: 0;
-    margin: 0;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    height: 120px;
+    margin: 0 0 0 0;
+    padding: var(--padd-sm) 0 0 var(--padd-sm);
+    text-shadow: 1px 1px 4px black;
   }
   p {
-    margin-top: 0.5rem;
-    margin-bottom: 0;
+    background-color: white;
+    border-radius: var(--rad-md);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
     color: #444;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: var(--padd-sm);
   }
   .link-card:is(:hover, :focus-within) {
     background-position: 0;

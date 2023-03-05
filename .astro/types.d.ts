@@ -157,6 +157,20 @@ declare module 'astro:content' {
   collection: "environments",
   data: InferEntrySchema<"environments">
 },
+"de/environments/city.mdx": {
+  id: "de/environments/city.mdx",
+  slug: "de/environments/city",
+  body: string,
+  collection: "environments",
+  data: InferEntrySchema<"environments">
+},
+"de/environments/farm.mdx": {
+  id: "de/environments/farm.mdx",
+  slug: "de/environments/farm",
+  body: string,
+  collection: "environments",
+  data: InferEntrySchema<"environments">
+},
 "de/environments/garden.mdx": {
   id: "de/environments/garden.mdx",
   slug: "de/environments/garden",
@@ -171,9 +185,30 @@ declare module 'astro:content' {
   collection: "environments",
   data: InferEntrySchema<"environments">
 },
+"de/environments/wilderness.mdx": {
+  id: "de/environments/wilderness.mdx",
+  slug: "de/environments/wilderness",
+  body: string,
+  collection: "environments",
+  data: InferEntrySchema<"environments">
+},
 "en/environments/balcony.mdx": {
   id: "en/environments/balcony.mdx",
   slug: "en/environments/balcony",
+  body: string,
+  collection: "environments",
+  data: InferEntrySchema<"environments">
+},
+"en/environments/city.mdx": {
+  id: "en/environments/city.mdx",
+  slug: "en/environments/city",
+  body: string,
+  collection: "environments",
+  data: InferEntrySchema<"environments">
+},
+"en/environments/farm.mdx": {
+  id: "en/environments/farm.mdx",
+  slug: "en/environments/farm",
   body: string,
   collection: "environments",
   data: InferEntrySchema<"environments">
@@ -188,6 +223,13 @@ declare module 'astro:content' {
 "en/environments/ocean.mdx": {
   id: "en/environments/ocean.mdx",
   slug: "en/environments/ocean",
+  body: string,
+  collection: "environments",
+  data: InferEntrySchema<"environments">
+},
+"en/environments/wilderness.mdx": {
+  id: "en/environments/wilderness.mdx",
+  slug: "en/environments/wilderness",
   body: string,
   collection: "environments",
   data: InferEntrySchema<"environments">

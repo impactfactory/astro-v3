@@ -27,7 +27,7 @@ export const seedsSchema: any = z.object({
       })
     )
     .default([]),
-  materials: z.array(z.string()).optional(),
+  materials: z.array(z.string()).default([]),
   plants: z.array(z.string()).default([]),
   principles: z.array(z.string()).default([]),
   sortOrder: z.number().optional(),
