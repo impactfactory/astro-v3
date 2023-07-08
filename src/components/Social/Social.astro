@@ -1,0 +1,40 @@
+---
+import Facebook from "@components/Social/Facebook.astro";
+import Insta from "@components/Social/Insta.astro";
+import Newsletter from "@components/Social/Newsletter.astro";
+import Youtube from "@components/Social/Youtube.astro";
+const { lang, site } = Astro.props;
+
+let t: any = "";
+lang == "de" ? (t = site.languages.de) : (t = site.languages.en);
+---
+
+<section id="social">
+  <div class="indent-me">
+    <Facebook />
+    <Insta />
+    <Youtube />
+    <Newsletter />
+  </div>
+</section>
+
+<style>
+  .indent-me {
+    text-align: center;
+  }
+
+  :global(#social a) {
+    color: hsl(var(--dark) / 1);
+    display: inline-block;
+    padding: var(--padd-sm);
+  }
+
+  :global(#social a:hover) {
+    color: hsl(var(--prim) / 1);
+  }
+
+  :global(#social a svg) {
+    width: 40px;
+    height: 40px;
+  }
+</style>

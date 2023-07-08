@@ -6,6 +6,7 @@ import Header from "@components/Header/Header.astro";
 import Linkrel from "@components/Meta/Linkrel.astro";
 import Metas from "@components/Meta/Metas.astro";
 import { site } from "@data/site";
+import Social from "@components/Social/Social.astro";
 import Twitter from "@components/Meta/Twitter.astro";
 import "../styles/custom.scss";
 
@@ -41,6 +42,7 @@ lang == "de"
     <main class="indent-me">
       <slot name="main" />
     </main>
+    <Social lang={lang} site={site} />
     <Footer lang={lang} site={site} />
     <slot name="json" />
   </body>
