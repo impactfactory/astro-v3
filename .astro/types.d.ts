@@ -67,6 +67,13 @@ declare module 'astro:content' {
 
 	const entryMap: {
 		"animals": {
+"de/animals/beaver.mdx": {
+  id: "de/animals/beaver.mdx",
+  slug: "de/animals/beaver",
+  body: string,
+  collection: "animals",
+  data: InferEntrySchema<"animals">
+},
 "de/animals/dragonfly.mdx": {
   id: "de/animals/dragonfly.mdx",
   slug: "de/animals/dragonfly",
@@ -81,9 +88,30 @@ declare module 'astro:content' {
   collection: "animals",
   data: InferEntrySchema<"animals">
 },
+"de/animals/marten.mdx": {
+  id: "de/animals/marten.mdx",
+  slug: "de/animals/marten",
+  body: string,
+  collection: "animals",
+  data: InferEntrySchema<"animals">
+},
 "de/animals/mosquito.mdx": {
   id: "de/animals/mosquito.mdx",
   slug: "de/animals/mosquito",
+  body: string,
+  collection: "animals",
+  data: InferEntrySchema<"animals">
+},
+"de/animals/template.mdx": {
+  id: "de/animals/template.mdx",
+  slug: "de/animals/template",
+  body: string,
+  collection: "animals",
+  data: InferEntrySchema<"animals">
+},
+"de/animals/wildboar.mdx": {
+  id: "de/animals/wildboar.mdx",
+  slug: "de/animals/wildboar",
   body: string,
   collection: "animals",
   data: InferEntrySchema<"animals">

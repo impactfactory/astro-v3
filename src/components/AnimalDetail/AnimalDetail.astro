@@ -1,45 +1,66 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import Seed from "@layouts/Seed.astro";
+import Default from "@layouts/Default.astro";
+import { site } from "@data/site";
+import SeedsList from "@components/SeedsList.astro";
 import Tags from "@components/Elements/Tags.astro";
 import { Icon } from "astro-icon";
 const animals: any = await getCollection("animals");
 const { item, lang } = Astro.props;
 const { Content } = await item.render();
 
+const seeds: any = await getCollection("seeds", (s: any) => {
+  return (
+    s.data.draft == false &&
+    s.slug.substring(0, 2) == lang &&
+    s.data.animals.includes(item.slug.substring(11))
+  );
+});
+
 function getAnimal(animal: string): CollectionEntry<"animals"> | undefined {
   return animals.find((a: any) => a.slug === lang + "/animals/" + animal);
 }
+
+let t: any = "";
+lang == "de"
+  ? (t = site.languages.de.components.seedslist)
+  : (t = site.languages.en.components.seedslist);
 ---
 
-<Seed title={item.data.name} desc={item.data.desc_short} lang={lang}>
+<Default title={item.data.name} desc={item.data.desc_short} lang={lang}>
   <div slot="main">
     <article class="seeddetail">
       <h1>
-        <span class="main-icon"><Icon name={item.data.icon.name} /></span>{
-          item.data.name
-        }
+        <!--<span class="main-icon">
+          <Icon name={item.data.icon.name} /></span>-->
+        {item.data.name}
       </h1>
-      <div>
-        <h3>erbeutet:</h3>
-        {
-          item.data.prey
-            .map((a: any) => getAnimal(a))
-            .map((animal: any) => (
-              <Tags
-                label={animal?.data.name}
-                url={"/" + animal?.slug}
-                classtype="animals"
-                icon={animal?.data.icon}
-              />
-            ))
-        }
-      </div>
-      <h3>Wissenswertes</h3>
+
       <Content />
     </article>
+    <section>
+      {
+        item.data.prey.length != 0 && (
+          <div>
+            <h3>erbeutet:</h3>
+            {item.data.prey
+              .map((a: any) => getAnimal(a))
+              .map((animal: any) => (
+                <Tags
+                  label={animal?.data.name}
+                  url={"/" + animal?.slug}
+                  classtype="animals"
+                  icon={animal?.data.icon}
+                />
+              ))}
+          </div>
+        )
+      }
+
+      {seeds.length != 0 && <SeedsList seeds={seeds} t={t} item={item} />}
+    </section>
   </div>
-</Seed>
+</Default>
 
 <slot name="cc"><span set:html={item.data.icon.cc} /></slot>
 

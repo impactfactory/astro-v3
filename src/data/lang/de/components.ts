@@ -36,4 +36,7 @@ export const components = {
   principledetail: {
     seeds: "Folgende Seeds nutzen das Designprinzip",
   },
+  seedslist: {
+    title: "Passende Seeds",
+  },
 };
