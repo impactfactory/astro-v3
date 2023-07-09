@@ -13,29 +13,55 @@ lang == "de"
 ---
 
 <section class="howto">
+  {
+    s.data.gallery.length != 0 && (
+      <li>
+        <Icon name="mdi:book-check-outline" />
+        {t.materials}: {s.data.materials.join(", ")}
+      </li>
+    )
+  }
   <h2>{t.title}</h2>
 
   <div class="prep">
     <ul class="">
       <h3>{t.preparation}</h3>
-      <li>
-        <Icon name="mdi:book-check-outline" />
-        {t.materials}: {s.data.materials.join(", ")}
-      </li>
-      <li>
-        <Icon name="mdi:tools" />
-        {t.tools}: {s.data.tools.join(", ")}
-      </li>
 
-      <li>
-        <Icon name="mdi:wallet" />
-        {t.costs}: {s.data.costs} CHF
-      </li>
+      {
+        s.data.materials.length != 0 && (
+          <li>
+            <Icon name="mdi:book-check-outline" />
+            {t.materials}: {s.data.materials.join(", ")}
+          </li>
+        )
+      }
 
-      <li>
-        <Icon name="mdi:clock-time-eight" />
-        {t.time}: {s.data.time} Stunden
-      </li>
+      {
+        s.data.tools.length != 0 && (
+          <li>
+            <Icon name="mdi:tools" />
+            {t.tools}: {s.data.tools.join(", ")}
+          </li>
+        )
+      }
+
+      {
+        s.data.costs != undefined && (
+          <li>
+            <Icon name="mdi:wallet" />
+            {t.costs}: {s.data.costs} CHF
+          </li>
+        )
+      }
+
+      {
+        s.data.time != undefined && (
+          <li>
+            <Icon name="mdi:clock-time-eight" />
+            {t.time}: {s.data.time} Stunden
+          </li>
+        )
+      }
     </ul>
   </div>
   <div class="steps">

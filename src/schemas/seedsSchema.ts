@@ -21,10 +21,12 @@ export const seedsSchema: any = z.object({
     .optional(),
   links: z
     .array(
-      z.object({
-        url: z.string(),
-        label: z.string(),
-      })
+      z
+        .object({
+          url: z.string(),
+          label: z.string(),
+        })
+        .default([])
     )
     .default([]),
   materials: z.array(z.string()).default([]),
@@ -35,9 +37,9 @@ export const seedsSchema: any = z.object({
     .array(
       z.object({
         title: z.string(),
-        desc: z.string(),
+        desc: z.string().optional(),
         img: z.string(),
-        substeps: z.array(z.string()),
+        substeps: z.array(z.string()).default([]),
       })
     )
     .default([]),

@@ -1,6 +1,6 @@
 ---
 import Frontpage from "@layouts/Frontpage.astro";
-import Card from "@components/Card.astro";
+import Card from "@components/Elements/SeedCard.astro";
 import { getCollection } from "astro:content";
 
 const allSeeds = await getCollection("seeds", ({ id, data }) => {
@@ -10,14 +10,17 @@ const allSeeds = await getCollection("seeds", ({ id, data }) => {
 
 <Frontpage lang="en">
   <div slot="main">
-    <h1>Welcome</h1>
-    <p>english Text</p>
-
-    {
-      allSeeds.map((s) => (
-        <Card href={s.slug} title={s.data.name} body={s.data.desc_short} />
-        {s.slug}
-      ))
-    }
+    <h1>Plant Life.</h1>
+    <p></p>
+    <section class="seedscards">
+      <div>{allSeeds.map((s) => <Card s={s} />)}</div>
+    </section>
   </div>
 </Frontpage>
+
+<style>
+  .seedscards {
+    columns: 180px 4;
+    column-gap: var(--padd-md);
+  }
+</style>

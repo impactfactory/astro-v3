@@ -118,6 +118,34 @@ declare module 'astro:content' {
   collection: "articles",
   data: InferEntrySchema<"articles">
 },
+"de/articles/08072023.mdx": {
+  id: "de/articles/08072023.mdx",
+  slug: "de/articles/08072023",
+  body: string,
+  collection: "articles",
+  data: InferEntrySchema<"articles">
+},
+"en/articles/01022023.mdx": {
+  id: "en/articles/01022023.mdx",
+  slug: "en/articles/01022023",
+  body: string,
+  collection: "articles",
+  data: InferEntrySchema<"articles">
+},
+"en/articles/02022023.mdx": {
+  id: "en/articles/02022023.mdx",
+  slug: "en/articles/02022023",
+  body: string,
+  collection: "articles",
+  data: InferEntrySchema<"articles">
+},
+"en/articles/08072023.mdx": {
+  id: "en/articles/08072023.mdx",
+  slug: "en/articles/08072023",
+  body: string,
+  collection: "articles",
+  data: InferEntrySchema<"articles">
+},
 },
 "authors": {
 "de/authors/kai-pulfer.md": {
@@ -338,6 +366,13 @@ declare module 'astro:content' {
   collection: "seeds",
   data: InferEntrySchema<"seeds">
 },
+"de/seeds/beaverbombing.mdx": {
+  id: "de/seeds/beaverbombing.mdx",
+  slug: "de/seeds/beaverbombing",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
 "de/seeds/boomforest.mdx": {
   id: "de/seeds/boomforest.mdx",
   slug: "de/seeds/boomforest",
@@ -380,9 +415,65 @@ declare module 'astro:content' {
   collection: "seeds",
   data: InferEntrySchema<"seeds">
 },
+"en/seeds/antsstone.mdx": {
+  id: "en/seeds/antsstone.mdx",
+  slug: "en/seeds/antsstone",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
 "en/seeds/bathtubpond.mdx": {
   id: "en/seeds/bathtubpond.mdx",
   slug: "en/seeds/bathtubpond",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"en/seeds/beaverbombing.mdx": {
+  id: "en/seeds/beaverbombing.mdx",
+  slug: "en/seeds/beaverbombing",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"en/seeds/boomforest.mdx": {
+  id: "en/seeds/boomforest.mdx",
+  slug: "en/seeds/boomforest",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"en/seeds/coralsplanting.mdx": {
+  id: "en/seeds/coralsplanting.mdx",
+  slug: "en/seeds/coralsplanting",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"en/seeds/habitariuminsektorum.mdx": {
+  id: "en/seeds/habitariuminsektorum.mdx",
+  slug: "en/seeds/habitariuminsektorum",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"en/seeds/hedgehoghouse.mdx": {
+  id: "en/seeds/hedgehoghouse.mdx",
+  slug: "en/seeds/hedgehoghouse",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"en/seeds/seedbomb.mdx": {
+  id: "en/seeds/seedbomb.mdx",
+  slug: "en/seeds/seedbomb",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"en/seeds/template.mdx": {
+  id: "en/seeds/template.mdx",
+  slug: "en/seeds/template",
   body: string,
   collection: "seeds",
   data: InferEntrySchema<"seeds">

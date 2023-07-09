@@ -10,7 +10,7 @@ const allSeeds = await getCollection("seeds", ({ id, data }) => {
 
 <Frontpage lang="de">
   <div slot="main">
-    <h1>Keep Life on Earth - Seed by Seed</h1>
+    <h1>Leben pflanzen.</h1>
     <p></p>
     <section class="seedscards">
       <div>{allSeeds.map((s) => <Card s={s} />)}</div>

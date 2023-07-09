@@ -4,7 +4,7 @@ export const pages = {
     desc: "Idea and Intentions",
     slug: "about-us",
   },
-  animals: { name: "Tiere", slug: "tiere" },
+  animals: { name: "Tiere", slug: "animals" },
   authors: {
     name: "Authors",
     desc: "Overview Authors",
@@ -28,13 +28,13 @@ export const pages = {
   frontpage: { name: "Home", desc: "Expand Life", slug: "/" },
   impactfactory: {
     name: "Design & Development: ImpactFactory",
-    slug: "https://impactfactory.ch/de",
+    slug: "https://impactfactory.ch/en",
   },
   imprint: { name: "Imprint", desc: "Imprint", slug: "imprint" },
   plants: {
     name: "Plants",
     desc: "List of all plants",
-    slug: "pflanzen",
+    slug: "plants",
   },
   principles: {
     name: "Principles",

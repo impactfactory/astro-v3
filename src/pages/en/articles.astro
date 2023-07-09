@@ -1,0 +1,17 @@
+---
+import Default from "@layouts/Default.astro";
+import BlogCard from "@components/Elements/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const allArticles = await getCollection("articles", ({ id, data }) => {
+  return id.startsWith("en/") && data.draft == false;
+});
+---
+
+<Default desc="Articles around Seeds" lang="en" title="Seeds Blog">
+  <div slot="main">
+    <h1>Articles</h1>
+
+    {allArticles.map((a) => <BlogCard a={a} lang="en" />)}
+  </div>
+</Default>

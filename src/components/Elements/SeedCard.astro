@@ -34,7 +34,15 @@ const { s } = Astro.props;
         {s.data.name}
       </h3>
       <p>
-        {s.data.desc_short.substring(0, 80) + "..."}
+        {s.data.desc_short.substring(0, 160) + "..."}
+
+        <span class="synonyms">
+          {
+            s.data.synonyms.map((synonym) => (
+              <span>{synonym}&nbsp&nbsp&nbsp</span>
+            ))
+          }
+        </span>
       </p>
     </a>
   </div>
@@ -43,7 +51,7 @@ const { s } = Astro.props;
 <style>
   .card {
     break-inside: avoid;
-    margin-bottom: calc((120px - var(--padd-md)) * -1);
+    margin-bottom: calc((50px - var(--padd-md)) * -1);
   }
   .card > a {
     text-decoration: none;
@@ -62,13 +70,17 @@ const { s } = Astro.props;
   }
 
   .card-body {
-    transform: translateY(-120px);
+    transform: translateY(-50px);
   }
 
   h3 {
-    background: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(
+      180deg,
+      hsl(var(--black) / 0) 0%,
+      hsl(var(--black) / 0.8) 100%
+    );
     color: white;
-    height: 120px;
+    height: 50px;
     margin: 0 0 0 0;
     padding: var(--padd-sm) 0 0 var(--padd-sm);
     text-shadow: 1px 1px 4px black;
@@ -88,5 +100,11 @@ const { s } = Astro.props;
   }
   .link-card:is(:hover, :focus-within) h2 {
     color: rgb(var(--accent));
+  }
+
+  .synonyms {
+    display: block;
+    font-size: var(--fs-sm);
+    padding: var(--padd-md) 0 0 0;
   }
 </style>
