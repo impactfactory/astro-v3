@@ -27,6 +27,10 @@ export const components = {
     title: "Anleitung",
     tools: "Werkzeuge",
   },
+  keyvisual: {
+    license: "Lizenz",
+    picture: "Bild",
+  },
   links: {
     title: "Weiterführendes",
   },

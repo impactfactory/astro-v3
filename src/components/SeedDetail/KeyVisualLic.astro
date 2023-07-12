@@ -1,0 +1,36 @@
+---
+import { site } from "@data/site";
+const { s } = Astro.props;
+const lang = s.id.substr(0, 2);
+let t: any = "";
+lang == "de"
+  ? (t = site.languages.de.components.keyvisual)
+  : (t = site.languages.en.components.keyvisual);
+---
+
+<div class="keyvisual_lic">
+  {t.picture}:
+  <a href={s.data.keyvisual.author_url} target="_blank" rel="noopener"
+    >{s.data.keyvisual.author}</a
+  > / {t.license}: <a
+    href={s.data.keyvisual.lic_url}
+    target="_blank"
+    rel="noopener">{s.data.keyvisual.lic}</a
+  > / {s.data.keyvisual.hint}
+</div>
+
+<style>
+  .keyvisual_lic {
+    color: hsl(var(--white));
+    font-size: var(--fs-sm);
+    padding: 0 var(--padd-sm) 0 0;
+    position: relative;
+    text-align: right;
+    top: -20px;
+    width: 100%;
+  }
+  a {
+    color: hsl(var(--white)) !important;
+    text-shadow: 5px 5px 5px;
+  }
+</style>

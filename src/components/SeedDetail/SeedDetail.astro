@@ -8,6 +8,7 @@ import Inspirational from "@components/SeedDetail/Inspirational.astro";
 import Linklist from "@components/SeedDetail/Linklist.astro";
 import Seed from "@layouts/Seed.astro";
 import TagsList from "@components/SeedDetail/TagsList.astro";
+import KeyVisualLic from "./KeyVisualLic.astro";
 
 const { s } = Astro.props;
 const lang = s.id.substr(0, 2);
@@ -21,6 +22,10 @@ const lang = s.id.substr(0, 2);
       <DetailVisual s={s} />
 
       <AuthorThumb s={s} />
+
+      <KeyVisualLic s={s} />
+
+      {s.data.keyvisual != "" && <KeyVisualLic s={s} />}
 
       {s.data.desc_short && <DescShort desc={s.data.desc_short} />}
 

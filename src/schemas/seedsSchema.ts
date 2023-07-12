@@ -15,22 +15,24 @@ export const seedsSchema: any = z.object({
   inspirational: z.string().optional(),
   keyvisual: z
     .object({
-      src: z.string(),
-      alt: z.string(),
+      author: z.string().optional(),
+      author_url: z.string().nullable(),
+      hint: z.string().nullable(),
+      lic: z.string().nullable(),
+      lic_url: z.string().nullable(),
     })
     .optional(),
   links: z
     .array(
-      z
-        .object({
-          url: z.string(),
-          label: z.string(),
-        })
-        .default([])
+      z.object({
+        url: z.string(),
+        label: z.string(),
+      })
     )
     .default([]),
   materials: z.array(z.string()).default([]),
   plants: z.array(z.string()).default([]),
+  preview: z.boolean().default(false),
   principles: z.array(z.string()).default([]),
   sortOrder: z.number().optional(),
   steps: z

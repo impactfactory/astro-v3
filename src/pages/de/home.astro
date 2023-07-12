@@ -13,20 +13,14 @@ const allSeeds = await getCollection("seeds", ({ id, data }) => {
     <h1>Leben pflanzen.</h1>
     <p></p>
     <section class="seedscards">
-      <div>{allSeeds.map((s) => <Card s={s} />)}</div>
+      <div>
+        {allSeeds.map((s) => <Card s={s} />)}
+      </div>
     </section>
   </div>
 </Frontpage>
 
 <style>
-  /*.seedscards {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: flex-start;
-    gap: var(--padd-md);
-  }*/
   .seedscards {
     columns: 180px 4;
     column-gap: var(--padd-md);

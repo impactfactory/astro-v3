@@ -387,6 +387,13 @@ declare module 'astro:content' {
   collection: "seeds",
   data: InferEntrySchema<"seeds">
 },
+"de/seeds/asphaltcracking.mdx": {
+  id: "de/seeds/asphaltcracking.mdx",
+  slug: "de/seeds/asphaltcracking",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
 "de/seeds/bathtubpond.mdx": {
   id: "de/seeds/bathtubpond.mdx",
   slug: "de/seeds/bathtubpond",
@@ -397,6 +404,20 @@ declare module 'astro:content' {
 "de/seeds/beaverbombing.mdx": {
   id: "de/seeds/beaverbombing.mdx",
   slug: "de/seeds/beaverbombing",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"de/seeds/benjeshedge.mdx": {
+  id: "de/seeds/benjeshedge.mdx",
+  slug: "de/seeds/benjeshedge",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"de/seeds/birdbath.mdx": {
+  id: "de/seeds/birdbath.mdx",
+  slug: "de/seeds/birdbath",
   body: string,
   collection: "seeds",
   data: InferEntrySchema<"seeds">
@@ -415,6 +436,13 @@ declare module 'astro:content' {
   collection: "seeds",
   data: InferEntrySchema<"seeds">
 },
+"de/seeds/flowermeadow.mdx": {
+  id: "de/seeds/flowermeadow.mdx",
+  slug: "de/seeds/flowermeadow",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
 "de/seeds/habitariuminsektorum.mdx": {
   id: "de/seeds/habitariuminsektorum.mdx",
   slug: "de/seeds/habitariuminsektorum",
@@ -429,6 +457,20 @@ declare module 'astro:content' {
   collection: "seeds",
   data: InferEntrySchema<"seeds">
 },
+"de/seeds/insectwaterthrough.mdx": {
+  id: "de/seeds/insectwaterthrough.mdx",
+  slug: "de/seeds/insectwaterthrough",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"de/seeds/sandlens.mdx": {
+  id: "de/seeds/sandlens.mdx",
+  slug: "de/seeds/sandlens",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
 "de/seeds/seedbomb.mdx": {
   id: "de/seeds/seedbomb.mdx",
   slug: "de/seeds/seedbomb",
@@ -439,6 +481,13 @@ declare module 'astro:content' {
 "de/seeds/template.mdx": {
   id: "de/seeds/template.mdx",
   slug: "de/seeds/template",
+  body: string,
+  collection: "seeds",
+  data: InferEntrySchema<"seeds">
+},
+"de/seeds/wildbeerocket.mdx": {
+  id: "de/seeds/wildbeerocket.mdx",
+  slug: "de/seeds/wildbeerocket",
   body: string,
   collection: "seeds",
   data: InferEntrySchema<"seeds">
@@ -495,13 +544,6 @@ declare module 'astro:content' {
 "en/seeds/seedbomb.mdx": {
   id: "en/seeds/seedbomb.mdx",
   slug: "en/seeds/seedbomb",
-  body: string,
-  collection: "seeds",
-  data: InferEntrySchema<"seeds">
-},
-"en/seeds/template.mdx": {
-  id: "en/seeds/template.mdx",
-  slug: "en/seeds/template",
   body: string,
   collection: "seeds",
   data: InferEntrySchema<"seeds">

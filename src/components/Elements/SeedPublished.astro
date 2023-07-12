@@ -1,0 +1,49 @@
+---
+import { Picture } from "@astrojs/image/components";
+
+export interface Props {
+  s: any;
+}
+
+const { s } = Astro.props;
+---
+
+<div class="card published">
+  <div class="card-img">
+    <a href={"/" + s.slug}>
+      <Picture
+        alt={"Thumbnail " + s.data.name}
+        aspectRatio="20:12"
+        background="transparent"
+        class="thumbnail"
+        fit="cover"
+        formats={["avif", "webp", "jpeg"]}
+        height="120px"
+        sizes={"(max-width: 1400px) 200px,400px"}
+        src={"/images/seeds/" + s.slug.substr(9) + "/keyvisual.jpg"}
+        position="center"
+        width="200px"
+        widths={[90, 180]}
+        style=""
+      />
+    </a>
+  </div>
+  <div class="card-body">
+    <a href={"/" + s.slug}>
+      <h3>
+        {s.data.name}
+      </h3>
+      <p>
+        {s.data.desc_short.substring(0, 160) + "..."}
+
+        <span class="synonyms">
+          {
+            s.data.synonyms.map((synonym) => (
+              <span>{synonym}&nbsp&nbsp&nbsp</span>
+            ))
+          }
+        </span>
+      </p>
+    </a>
+  </div>
+</div>
