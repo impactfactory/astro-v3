@@ -1,6 +1,6 @@
 ---
 import AuthorThumb from "@components/Elements/AuthorThumb.astro";
-import DescShort from "@components/SeedDetail/DescShort.astro";
+import DescLong from "@components/SeedDetail/DescLong.astro";
 import DetailVisual from "@components/Elements/DetailVisual.astro";
 import Gallery from "@components/SeedDetail/Gallery.astro";
 import HowTo from "@components/SeedDetail/HowTo.astro";
@@ -27,7 +27,7 @@ const lang = s.id.substr(0, 2);
 
       {s.data.keyvisual != "" && <KeyVisualLic s={s} />}
 
-      {s.data.desc_short && <DescShort desc={s.data.desc_short} />}
+      {s.data.desc_long && <DescLong desc={s.data.desc_long} />}
 
       {s.data.steps.length != 0 && <HowTo s={s} />}
 

@@ -357,6 +357,13 @@ declare module 'astro:content' {
   collection: "principles",
   data: InferEntrySchema<"principles">
 },
+"de/principles/waterretention.mdx": {
+  id: "de/principles/waterretention.mdx",
+  slug: "de/principles/waterretention",
+  body: string,
+  collection: "principles",
+  data: InferEntrySchema<"principles">
+},
 "en/principles/borders.mdx": {
   id: "en/principles/borders.mdx",
   slug: "en/principles/borders",
@@ -374,6 +381,13 @@ declare module 'astro:content' {
 "en/principles/positioning.mdx": {
   id: "en/principles/positioning.mdx",
   slug: "en/principles/positioning",
+  body: string,
+  collection: "principles",
+  data: InferEntrySchema<"principles">
+},
+"en/principles/waterretention.mdx": {
+  id: "en/principles/waterretention.mdx",
+  slug: "en/principles/waterretention",
   body: string,
   collection: "principles",
   data: InferEntrySchema<"principles">
